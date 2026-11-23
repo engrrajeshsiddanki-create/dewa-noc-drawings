@@ -1,0 +1,102 @@
+Activity ID,Activity Name,WBS,Type,Original Duration,Remaining Duration,% Complete,BL Start,BL Finish,Start,Finish,Actual Start,Actual Finish,Total Float,Critical,Start Variance,Finish Variance,Predecessors,BOQ Items,Duration Basis
+PC1010,Notice to Proceed / Commencement Date,01.PC,TT_Mile,0,0,100,2026-03-01,2026-03-01,2026-03-01,2026-03-01,2026-03-01,2026-03-01,,N,0,0,,,
+PC1020,"Baseline programme, cash flow & submittal schedule",01.PC,TT_Task,20,0,100,2026-03-01,2026-03-30,2026-03-01,2026-03-30,2026-03-01,2026-03-30,,N,0,0,PC1010:FS,1.03,Fixed 20 d (lump sum)
+PC1030,"HSE, QA/QC, ITP & environmental plans",01.PC,TT_Task,15,0,100,2026-03-01,2026-03-24,2026-03-01,2026-03-24,2026-03-01,2026-03-24,,N,0,0,PC1010:FS,1.04,Fixed 15 d (lump sum)
+PC1040,"Insurances, performance & advance payment bonds",01.PC,TT_Task,10,0,100,2026-03-01,2026-03-15,2026-03-01,2026-03-15,2026-03-01,2026-03-15,,N,0,0,PC1010:FS,1.07,Fixed 10 d (lump sum)
+AU1010,Dubai Municipality: Affection plan & site demarcation,02.AU,TT_Task,5,0,100,2026-03-01,2026-03-08,2026-03-03,2026-03-12,2026-03-03,2026-03-12,,N,-2,-4,PC1010:FS,,Authority review SLA 5 d
+AU1020,Dubai Municipality: Building permit (structural & architectural approval),02.AU,TT_Task,30,0,100,2026-03-09,2026-04-16,2026-03-14,2026-04-23,2026-03-14,2026-04-23,,N,-4,-6,AU1010:FS,,Authority review SLA 30 d
+AU1030,DEWA: Electricity load NOC (building permit stage),02.AU,TT_Task,15,0,100,2026-03-09,2026-03-30,2026-03-10,2026-03-31,2026-03-10,2026-03-31,,N,-1,-1,AU1020:SS,,Authority review SLA 15 d
+AU1040,DEWA: Water NOC (building permit stage),02.AU,TT_Task,10,0,100,2026-03-09,2026-03-24,2026-03-11,2026-03-26,2026-03-11,2026-03-26,,N,-2,-2,AU1020:SS,,Authority review SLA 10 d
+AU1050,RTA: Right-of-way & site access NOC,02.AU,TT_Task,12,0,100,2026-03-15,2026-03-31,2026-03-16,2026-04-02,2026-03-16,2026-04-02,,N,-1,-2,AU1020:SS+5,,Authority review SLA 12 d
+AU1060,Etisalat / du: Telecom infrastructure NOC,02.AU,TT_Task,10,0,100,2026-03-15,2026-03-29,2026-03-18,2026-04-02,2026-03-18,2026-04-02,,N,-3,-4,AU1020:SS+5,,Authority review SLA 10 d
+AU1070,Dubai Municipality: Excavation & shoring permit,02.AU,TT_Task,12,0,100,2026-03-23,2026-04-05,2026-03-25,2026-04-09,2026-03-25,2026-04-09,,N,-2,-4,AU1020:SS+10,,Authority review SLA 12 d
+AU1080,DM Environment: Dewatering & discharge permit,02.AU,TT_Task,15,0,100,2026-03-23,2026-04-08,2026-03-28,2026-04-15,2026-03-28,2026-04-15,,N,-4,-6,AU1020:SS+10,,Authority review SLA 15 d
+AU1090,Civil Defence: Fire & life safety drawings approval,02.AU,TT_Task,25,0,100,2026-05-11,2026-06-11,2026-05-16,2026-06-18,2026-05-16,2026-06-18,,N,-4,-5,AU1020:FS+20,,Authority review SLA 25 d
+AU1100,DEWA: Substation NOC & RMU / transformer approval,02.AU,TT_Task,30,24,60,2026-06-13,2026-07-18,2026-06-27,2026-12-24,2026-06-27,,82,N,-11,-133,AU1030:FS+60,,Authority review SLA 30 d
+AU1110,Dubai Municipality: Sewer / drainage connection NOC,02.AU,TT_Task,20,0,100,2026-09-10,2026-10-03,2026-09-16,2026-10-15,2026-09-16,2026-10-15,,N,-5,-11,AU1020:FS+120,,Authority review SLA 20 d
+AU1120,RTA: Road cutting & utility trench NOC,02.AU,TT_Task,15,0,100,2026-10-04,2026-10-20,2026-10-06,2026-10-22,2026-10-06,2026-10-22,,N,-2,-2,AU1020:FS+140,,Authority review SLA 15 d
+AU1130,DM Public Health: Swimming pool permit & inspection,02.AU,TT_Task,15,15,0,2027-05-19,2027-06-05,2027-05-30,2027-06-16,,,104,N,-9,-9,EX1020:FS,,Authority review SLA 15 d
+AU1140,DEWA: DEWA final inspection & energisation,02.AU,TT_Task,15,15,0,2027-04-27,2027-05-13,2027-05-08,2027-05-29,,,74,N,-9,-9,EX1010:FS,,Authority review SLA 15 d
+AU1150,Dubai Municipality: Lift inspection & operating certificate,02.AU,TT_Task,10,10,0,2027-05-03,2027-05-13,2027-05-19,2027-05-30,,,118,N,-10,-10,M21070:FS,,Authority review SLA 10 d
+AU1160,Civil Defence: Civil Defence final inspection & completion certificate,02.AU,TT_Task,15,15,0,2027-07-13,2027-07-29,2027-07-28,2027-08-15,,,34,N,-13,-13,TC1010:FS,,Authority review SLA 15 d
+AU1170,DEWA: Water meter & final water connection,02.AU,TT_Task,10,10,0,2027-06-01,2027-06-13,2027-06-17,2027-06-28,,,94,N,-13,-13,TC1010:SS+10,,Authority review SLA 10 d
+AU1180,Dubai Municipality: Building Completion Certificate,02.AU,TT_Task,20,20,0,2027-07-31,2027-08-23,2027-08-16,2027-09-07,,,34,N,-13,-13,"AU1160:FS, AU1140:FS",,Authority review SLA 20 d
+AU1190,Dubai Municipality: Makani number & address plate,02.AU,TT_Task,5,5,0,2027-07-31,2027-08-04,2027-08-16,2027-08-21,,,49,N,-13,-13,AU1180:SS,,Authority review SLA 5 d
+PC1050,Submittal approval (MAR + shop drawings) – Façade & glazing,01.PC,TT_Task,30,0,100,2026-07-05,2026-08-08,2026-07-09,2026-08-13,2026-07-09,2026-08-13,,N,-4,-5,"PC1020:FS, SB1080:SS",,Consultant review cycle 30 d
+PC1060,"Procure, manufacture & deliver – Façade & glazing",01.PC,TT_Task,84,2,98.8,2026-08-09,2026-11-15,2026-08-15,2026-11-25,2026-08-15,,56,N,-5,-9,PC1050:FS,,Supplier lead time 14 weeks
+PC1070,Submittal approval (MAR + shop drawings) – LV panels & MDBs,01.PC,TT_Task,30,0,100,2026-09-20,2026-10-24,2026-09-27,2026-11-01,2026-09-27,2026-11-01,,N,-6,-7,"PC1020:FS, SS1030:SS",,Consultant review cycle 30 d
+PC1080,"Procure, manufacture & deliver – LV panels & MDBs",01.PC,TT_Task,72,57,25,2026-10-25,2027-01-19,2026-11-02,2027-02-01,2026-11-02,,103,N,-7,-11,PC1070:FS,,Supplier lead time 12 weeks
+PC1090,Submittal approval (MAR + shop drawings) – HVAC equipment,01.PC,TT_Task,30,0,100,2026-08-30,2026-10-03,2026-09-05,2026-10-10,2026-09-05,2026-10-10,,N,-5,-6,"PC1020:FS, SS1020:SS",,Consultant review cycle 30 d
+PC1100,"Procure, manufacture & deliver – HVAC equipment",01.PC,TT_Task,84,51,42.9,2026-10-04,2027-01-12,2026-10-11,2027-01-25,2026-10-11,,84,N,-6,-11,PC1090:FS,,Supplier lead time 14 weeks
+PC1110,Submittal approval (MAR + shop drawings) – Fire pump set,01.PC,TT_Task,30,0,100,2026-09-20,2026-10-24,2026-09-27,2026-11-01,2026-09-27,2026-11-01,,N,-6,-7,"PC1020:FS, SS1030:SS",,Consultant review cycle 30 d
+PC1120,"Procure, manufacture & deliver – Fire pump set",01.PC,TT_Task,72,57,25,2026-10-25,2027-01-19,2026-11-02,2027-02-01,2026-11-02,,108,N,-7,-11,PC1110:FS,,Supplier lead time 12 weeks
+PC1130,Submittal approval (MAR + shop drawings) – Passenger lifts,01.PC,TT_Task,30,0,100,2026-08-08,2026-09-12,2026-08-13,2026-09-19,2026-08-13,2026-09-19,,N,-5,-6,"PC1020:FS, SS1010:SS",,Consultant review cycle 30 d
+PC1140,"Procure, manufacture & deliver – Passenger lifts",01.PC,TT_Task,108,56,50,2026-09-13,2027-01-19,2026-09-20,2027-01-31,2026-09-20,,54,N,-6,-10,PC1130:FS,,Supplier lead time 18 weeks
+PC1150,Submittal approval (MAR + shop drawings) – Standby generator,01.PC,TT_Task,30,0,100,2026-09-20,2026-10-24,2026-09-27,2026-11-01,2026-09-27,2026-11-01,,N,-6,-7,"PC1020:FS, SS1030:SS",,Consultant review cycle 30 d
+PC1160,"Procure, manufacture & deliver – Standby generator",01.PC,TT_Task,96,85,18.4,2026-10-25,2027-02-18,2026-11-02,2027-03-15,2026-11-02,,79,N,-7,-19,PC1150:FS,,Supplier lead time 16 weeks
+PC1170,Submittal approval (MAR + shop drawings) – DEWA substation,01.PC,TT_Task,30,0,100,2026-07-16,2026-08-19,2026-07-21,2026-08-24,2026-07-21,2026-08-24,,N,-4,-4,"PC1020:FS, SB1080:SS+10",,Consultant review cycle 30 d
+PC1180,"Procure, manufacture & deliver – DEWA substation",01.PC,TT_Task,120,50,60.8,2026-08-20,2027-01-11,2026-08-26,2027-01-24,2026-08-26,,56,N,-4,-11,PC1170:FS,,Supplier lead time 20 weeks
+MB1010,Mobilisation & site establishment,03.MB,TT_Task,25,0,100,2026-04-18,2026-05-16,2026-04-18,2026-05-16,2026-04-18,2026-05-16,,N,0,0,"AU1020:FS, PC1010:SS",1.01,Fixed 25 d (lump sum)
+MB1020,Site clearance & survey,03.MB,TT_Task,6,0,100,2026-04-23,2026-04-29,2026-04-23,2026-04-29,2026-04-23,2026-04-29,,N,0,0,MB1010:SS+5,3.01,"2,400 m2 ÷ 400 m2/day"
+SB1010,Shoring,04.SB,TT_Task,24,0,100,2026-04-30,2026-05-31,2026-05-02,2026-06-03,2026-05-02,2026-06-03,,N,-1,-3,"MB1020:FS, AU1070:FS",3.02,210 m ÷ 9 m/day
+SB1020,Dewatering,04.SB,TT_Task,70,0,100,2026-05-06,2026-08-08,2026-05-09,2026-08-13,2026-05-09,2026-08-13,,N,-2,-5,"SB1010:SS+5, AU1080:FS",3.03,Fixed 70 d (lump sum)
+SB1030,Piling,04.SB,TT_Task,16,0,100,2026-04-30,2026-05-18,2026-05-02,2026-05-20,2026-05-02,2026-05-20,,N,-1,-2,"MB1020:FS, AU1020:FS","3.04, 3.05, 3.06",96 nr ÷ 6 nr/day
+SB1040,Bulk excavation,04.SB,TT_Task,26,0,100,2026-06-01,2026-07-05,2026-06-04,2026-07-09,2026-06-04,2026-07-09,,N,-3,-4,"SB1030:FS, SB1010:FS, SB1020:SS+5",3.07,"9,800 m3 ÷ 380 m3/day"
+SB1050,Blinding,04.SB,TT_Task,4,0,100,2026-06-21,2026-06-25,2026-06-24,2026-06-28,2026-06-24,2026-06-28,,N,-3,-2,SB1040:SS+16,3.08,160 m3 ÷ 40 m3/day
+SB1060,Anti-termite treatment,04.SB,TT_Task,4,0,100,2026-06-27,2026-07-01,2026-07-01,2026-07-05,2026-07-01,2026-07-05,,N,-4,-3,SB1050:FS,3.09,"2,200 m2 ÷ 700 m2/day"
+SB1070,Substructure waterproofing,04.SB,TT_Task,15,0,100,2026-06-29,2026-07-19,2026-07-04,2026-07-23,2026-07-04,2026-07-23,,N,-4,-4,SB1050:FS+2,3.10,"2,900 m2 ÷ 200 m2/day"
+SB1080,Raft & retaining walls,04.SB,TT_Task,24,0,100,2026-07-05,2026-08-06,2026-07-09,2026-08-11,2026-07-09,2026-08-11,,N,-4,-4,"SB1070:SS+5, SB1050:FS","3.11, 3.12, 3.13",380 m3 ÷ 16 m3/day
+SB1090,Backfilling,04.SB,TT_Task,13,0,100,2026-08-16,2026-09-03,2026-08-22,2026-09-08,2026-08-22,2026-09-08,,N,-5,-4,SB1080:FS+7,3.14,"2,600 m3 ÷ 200 m3/day"
+SS1010,"RCC frame – columns, core walls & PT slab – Ground floor",05.SS,TT_Task,15,0,100,2026-08-08,2026-08-29,2026-08-16,2026-09-06,2026-08-16,2026-09-06,,N,-7,-7,SB1080:FS,"4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07",Floor cycle 15 d
+SS1020,"RCC frame – columns, core walls & PT slab – Level 1",05.SS,TT_Task,15,0,100,2026-08-30,2026-09-19,2026-09-07,2026-09-28,2026-09-07,2026-09-28,,N,-7,-8,SS1010:FS,"4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07",Floor cycle 15 d
+SS1030,"RCC frame – columns, core walls & PT slab – Level 2",05.SS,TT_Task,15,0,100,2026-09-20,2026-10-06,2026-09-29,2026-10-15,2026-09-29,2026-10-15,,N,-8,-8,SS1020:FS,"4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07",Floor cycle 15 d
+SS1040,"RCC frame – columns, core walls & PT slab – Level 3",05.SS,TT_Task,15,0,100,2026-10-07,2026-10-24,2026-10-17,2026-11-04,2026-10-17,2026-11-04,,N,-8,-10,SS1030:FS,"4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07",Floor cycle 15 d
+SS1050,"RCC frame – columns, core walls & PT slab – Level 4",05.SS,TT_Task,15,0,100,2026-10-25,2026-11-10,2026-11-05,2026-11-23,2026-11-05,2026-11-23,,N,-10,-11,SS1040:FS,"4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07",Floor cycle 15 d
+SS1060,"RCC frame – columns, core walls & PT slab – Roof",05.SS,TT_Task,12,23,8.2,2026-11-11,2026-11-24,2026-11-22,2026-12-23,2026-11-22,,67,N,-9,-22,SS1050:FS,"4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07",Floor cycle 12 d
+BW1010,Blockwork & lintels – Ground floor,06.BW,TT_Task,24,0,100,2026-09-28,2026-10-25,2026-10-11,2026-11-08,2026-10-11,2026-11-08,,N,-11,-12,SS1020:FS+7,"5.01, 5.02, 5.03","11,200 m2 ÷ 95 m2/day → 5 floors"
+BW1020,Blockwork & lintels – Level 1,06.BW,TT_Task,24,13,50.1,2026-10-26,2026-11-22,2026-11-09,2026-12-12,2026-11-09,,33,Y,-12,-14,"SS1030:FS+7, BW1010:FS","5.01, 5.02, 5.03","11,200 m2 ÷ 95 m2/day → 5 floors"
+BW1030,Blockwork & lintels – Level 2,06.BW,TT_Task,24,24,0,2026-11-23,2026-12-23,2026-12-13,2027-01-09,,,36,N,-14,-14,"SS1040:FS+7, BW1020:FS","5.01, 5.02, 5.03","11,200 m2 ÷ 95 m2/day → 5 floors"
+BW1040,Blockwork & lintels – Level 3,06.BW,TT_Task,24,24,0,2026-12-24,2027-01-20,2027-01-10,2027-02-06,,,39,N,-14,-14,"SS1050:FS+7, BW1030:FS","5.01, 5.02, 5.03","11,200 m2 ÷ 95 m2/day → 5 floors"
+BW1050,Blockwork & lintels – Level 4,06.BW,TT_Task,24,24,0,2027-01-21,2027-02-21,2027-02-07,2027-03-15,,,33,Y,-14,-17,"SS1060:FS+7, BW1040:FS","5.01, 5.02, 5.03","11,200 m2 ÷ 95 m2/day → 5 floors"
+M11010,MEP first fix – Ground floor,07.M1,TT_Task,25,0,100,2026-10-04,2026-11-01,2026-10-18,2026-11-17,2026-10-18,2026-11-17,,N,-12,-14,"BW1010:SS+5, AU1090:FS","6.02, 6.03, 6.04, 6.05, 6.06, 6.07",Fixed 125 d (lump sum) → 5 floors
+M11020,MEP first fix – Level 1,07.M1,TT_Task,25,24,20,2026-11-01,2026-11-29,2026-11-17,2026-12-24,2026-11-17,,60,N,-14,-19,"BW1020:SS+5, M11010:SS+13","6.02, 6.03, 6.04, 6.05, 6.06, 6.07",Fixed 125 d (lump sum) → 5 floors
+M11030,MEP first fix – Level 2,07.M1,TT_Task,25,25,0,2026-11-29,2026-12-30,2026-12-19,2027-01-16,,,57,N,-14,-14,"BW1030:SS+5, M11020:SS+13","6.02, 6.03, 6.04, 6.05, 6.06, 6.07",Fixed 125 d (lump sum) → 5 floors
+M11040,MEP first fix – Level 3,07.M1,TT_Task,25,25,0,2026-12-30,2027-01-27,2027-01-16,2027-02-15,,,46,N,-14,-16,"BW1040:SS+5, M11030:SS+13","6.02, 6.03, 6.04, 6.05, 6.06, 6.07",Fixed 125 d (lump sum) → 5 floors
+M11050,MEP first fix – Level 4,07.M1,TT_Task,25,25,0,2027-01-27,2027-03-01,2027-02-13,2027-03-21,,,34,N,-14,-15,"BW1050:SS+5, M11040:SS+13","6.02, 6.03, 6.04, 6.05, 6.06, 6.07",Fixed 125 d (lump sum) → 5 floors
+FN1010,Plaster & screed – Ground floor,08.FN,TT_Task,19,14,36.9,2026-11-02,2026-11-23,2026-11-15,2026-12-13,2026-11-15,,75,N,-11,-14,M11010:FS,"7.01, 7.02, 7.03","28,500 m2 ÷ 300 m2/day → 5 floors"
+FN1020,Plaster & screed – Level 1,08.FN,TT_Task,19,19,0,2026-11-30,2026-12-24,2026-12-26,2027-01-16,,,61,N,-19,-19,"M11020:FS, FN1010:SS+10","7.01, 7.02, 7.03","28,500 m2 ÷ 300 m2/day → 5 floors"
+FN1030,Plaster & screed – Level 2,08.FN,TT_Task,19,19,0,2026-12-31,2027-01-21,2027-01-17,2027-02-07,,,57,N,-14,-14,"M11030:FS, FN1020:SS+10","7.01, 7.02, 7.03","28,500 m2 ÷ 300 m2/day → 5 floors"
+FN1040,Plaster & screed – Level 3,08.FN,TT_Task,19,19,0,2027-01-28,2027-02-22,2027-02-16,2027-03-16,,,42,N,-16,-17,"M11040:FS, FN1030:SS+10","7.01, 7.02, 7.03","28,500 m2 ÷ 300 m2/day → 5 floors"
+FN1050,Plaster & screed – Level 4,08.FN,TT_Task,19,19,0,2027-03-02,2027-03-28,2027-03-22,2027-04-12,,,34,N,-15,-13,"M11050:FS, FN1040:SS+10","7.01, 7.02, 7.03","28,500 m2 ÷ 300 m2/day → 5 floors"
+FN1060,"Tiling, ceilings, joinery & paint – Ground floor",08.FN,TT_Task,30,30,0,2026-11-28,2027-01-04,2026-12-17,2027-01-20,,,75,N,-14,-14,FN1010:FS+3,"7.04, 7.05, 7.06, 7.07, 7.08, 7.09, 7.10","8,100 m2 ÷ 55 m2/day → 5 floors"
+FN1070,"Tiling, ceilings, joinery & paint – Level 1",08.FN,TT_Task,30,30,0,2026-12-29,2027-02-01,2027-01-20,2027-02-28,,,57,N,-19,-23,"FN1020:FS+3, FN1060:SS+15","7.04, 7.05, 7.06, 7.07, 7.08, 7.09, 7.10","8,100 m2 ÷ 55 m2/day → 5 floors"
+FN1080,"Tiling, ceilings, joinery & paint – Level 2",08.FN,TT_Task,30,30,0,2027-01-26,2027-03-07,2027-02-11,2027-03-25,,,52,N,-14,-14,"FN1030:FS+3, FN1070:SS+15","7.04, 7.05, 7.06, 7.07, 7.08, 7.09, 7.10","8,100 m2 ÷ 55 m2/day → 5 floors"
+FN1090,"Tiling, ceilings, joinery & paint – Level 3",08.FN,TT_Task,30,30,0,2027-02-27,2027-04-06,2027-03-21,2027-04-24,,,42,N,-17,-15,"FN1040:FS+3, FN1080:SS+15","7.04, 7.05, 7.06, 7.07, 7.08, 7.09, 7.10","8,100 m2 ÷ 55 m2/day → 5 floors"
+FN1100,"Tiling, ceilings, joinery & paint – Level 4",08.FN,TT_Task,30,30,0,2027-04-01,2027-05-05,2027-04-17,2027-05-25,,,34,N,-13,-13,"FN1050:FS+3, FN1090:SS+15","7.04, 7.05, 7.06, 7.07, 7.08, 7.09, 7.10","8,100 m2 ÷ 55 m2/day → 5 floors"
+M21010,MEP second fix & devices – Ground floor,10.M2,TT_Task,26,26,0,2026-12-15,2027-01-13,2026-12-31,2027-01-30,,,83,N,-14,-14,"FN1060:SS+12, FN1060:FF+5","9.01, 9.03, 9.04, 9.06, 9.09",Fixed 130 d (lump sum) → 5 floors
+M21020,MEP second fix & devices – Level 1,10.M2,TT_Task,26,26,0,2027-01-12,2027-02-11,2027-02-03,2027-03-14,,,61,N,-19,-24,"FN1070:SS+12, FN1070:FF+5, M21010:SS+13","9.01, 9.03, 9.04, 9.06, 9.09",Fixed 130 d (lump sum) → 5 floors
+M21030,MEP second fix & devices – Level 2,10.M2,TT_Task,26,26,0,2027-02-09,2027-03-18,2027-02-25,2027-04-01,,,58,N,-14,-12,"FN1080:SS+12, FN1080:FF+5, M21020:SS+13","9.01, 9.03, 9.04, 9.06, 9.09",Fixed 130 d (lump sum) → 5 floors
+M21040,MEP second fix & devices – Level 3,10.M2,TT_Task,26,26,0,2027-03-15,2027-04-13,2027-04-04,2027-05-03,,,44,N,-17,-17,"FN1090:SS+12, FN1090:FF+5, M21030:SS+13","9.01, 9.03, 9.04, 9.06, 9.09",Fixed 130 d (lump sum) → 5 floors
+M21050,MEP second fix & devices – Level 4,10.M2,TT_Task,26,26,0,2027-04-15,2027-05-19,2027-05-01,2027-06-03,,,34,N,-13,-13,"FN1100:SS+12, FN1100:FF+5, M21040:SS+13","9.01, 9.03, 9.04, 9.06, 9.09",Fixed 130 d (lump sum) → 5 floors
+M11060,Builder's work in connection,07.M1,TT_Task,10,10,0,2027-02-15,2027-03-01,2027-03-07,2027-03-21,,,174,N,-17,-15,"M11010:SS, M11050:FF",6.01,Fixed 0 d
+FC1010,Roof waterproofing & insulation,09.FC,TT_Task,10,10,0,2026-12-15,2026-12-26,2027-01-10,2027-01-20,,,88,N,-22,-22,SS1060:FS+14,8.03,"1,950 m2 ÷ 200 m2/day"
+FC1020,Façade & glazing,09.FC,TT_Task,96,96,0,2026-11-16,2027-03-20,2026-11-26,2027-03-30,,,56,N,-9,-9,"BW1020:SS+10, PC1060:FS","8.01, 8.02, 8.04, 8.05, 8.06","2,100 m2 ÷ 22 m2/day"
+M21060,HVAC equipment,10.M2,TT_Task,55,55,0,2027-03-02,2027-05-09,2027-03-22,2027-05-29,,,39,N,-15,-13,"M11050:FS, FC1010:FS, PC1100:FS",9.05,Fixed 55 d (lump sum)
+M21070,Passenger lifts,10.M2,TT_Task,80,80,0,2027-01-20,2027-05-02,2027-02-01,2027-05-13,,,48,N,-10,-10,"SS1060:FS+20, PC1140:FS",9.08,2 nr ÷ 40 days/nr
+M21080,Standby generator,10.M2,TT_Task,20,20,0,2027-02-20,2027-03-21,2027-03-16,2027-04-07,,,79,N,-19,-15,"EX1020:SS+10, PC1160:FS, M21010:SS",9.10,1 nr ÷ 20 days/nr
+M21090,LV panels & MDBs,10.M2,TT_Task,30,30,0,2027-01-20,2027-02-28,2027-02-02,2027-03-17,,,97,N,-11,-13,"M21010:SS, PC1080:FS",9.02,Fixed 30 d (lump sum)
+M21100,Fire pump set,10.M2,TT_Task,25,25,0,2027-03-02,2027-04-04,2027-03-22,2027-04-19,,,69,N,-15,-13,"M11050:FS, PC1120:FS",9.07,Fixed 25 d (lump sum)
+EX1010,DEWA substation,11.EX,TT_Task,80,80,0,2027-01-14,2027-04-26,2027-01-25,2027-05-06,,,54,N,-9,-9,"EX1020:SS, AU1100:FS, PC1180:FS",10.01,Fixed 80 d (lump sum)
+EX1020,External works,11.EX,TT_Task,95,95,0,2027-01-14,2027-05-13,2027-01-25,2027-05-29,,,57,N,-9,-9,"FC1020:SS+48, SB1090:FS, AU1110:FS, AU1120:FS","10.02, 10.03, 10.04, 10.05, 10.06, 10.07, 10.08",Fixed 95 d (lump sum)
+TC1010,Testing & commissioning,12.TC,TT_Task,45,45,0,2027-05-20,2027-07-12,2027-06-05,2027-07-27,,,34,N,-13,-13,"M21050:FS, M21060:FS, M21070:FS, M21100:FS, M21090:FS, M21080:FS, EX1010:FS, AU1140:FF+10","11.01, 11.02, 11.03, 11.04",Fixed 45 d (lump sum)
+SN1010,Snagging & rectification,13.SN,TT_Task,30,30,0,2027-06-22,2027-07-26,2027-07-07,2027-08-10,,,42,N,-13,-13,TC1010:SS+27,1.11,Fixed 30 d (lump sum)
+HO1010,Final cleaning,14.HO,TT_Task,15,15,0,2027-07-27,2027-08-12,2027-08-11,2027-08-29,,,42,N,-13,-13,SN1010:FS,1.09,Fixed 15 d (lump sum)
+HO1020,"As-builts, O&M & handover documents",14.HO,TT_Task,30,30,0,2027-06-22,2027-07-26,2027-07-07,2027-08-10,,,57,N,-13,-13,SN1010:SS,1.10,Fixed 30 d (lump sum)
+HO1030,Demobilisation,14.HO,TT_Task,12,12,0,2027-08-24,2027-09-06,2027-09-08,2027-09-21,,,34,N,-13,-13,"HO1010:FS, HO1040:SS",1.13,Fixed 12 d (lump sum)
+DL1010,Defects Liability Period (12 months) & maintenance,15.DL,TT_Task,310,310,0,2027-08-24,2028-09-06,2027-09-08,2028-09-21,,,,N,-13,-13,HO1040:FS,1.12,Fixed 310 d (lump sum)
+HO1040,Practical Completion / Taking-Over Certificate,14.HO,TT_FinMile,0,0,0,2027-08-24,2027-08-24,2027-09-08,2027-09-08,,,34,N,-13,-13,"HO1010:FS, HO1020:FS, AU1180:FS, AU1190:FS, AU1150:FS, AU1130:FS, AU1170:FS, AU1060:FS, EX1020:FS, SN1010:FS, PC1030:FS, PC1040:FS, AU1040:FS, AU1050:FS, SB1060:FS, M11060:FS",,
+DL1020,Performance Certificate / final retention release,15.DL,TT_FinMile,0,0,0,2028-09-07,2028-09-07,2028-09-23,2028-09-23,,,,N,-13,-13,DL1010:FS,,
+PM1010,"Site management, supervision & document control (LOE)",16.PM,TT_LOE,0,0,0,2026-03-01,2027-08-24,2026-03-01,2027-09-08,,,,N,0,-13,"PC1010:SS, HO1040:FF","1.02, 1.08",Level of effort
+PM1020,Temporary power & water (LOE),16.PM,TT_LOE,0,0,0,2026-04-18,2027-05-13,2026-04-18,2027-05-29,,,,N,0,-9,"MB1010:SS, AU1140:FF",1.05,Level of effort
+PM1030,Tower crane & hoisting (LOE),16.PM,TT_LOE,0,0,0,2026-07-05,2026-11-24,2026-07-09,2026-12-23,,,,N,-4,-22,"SB1080:SS, SS1060:FF",1.06,Level of effort
+AU1200,Authority fees & connection charges (LOE),02.AU,TT_LOE,0,0,0,2026-03-01,2027-08-23,2026-03-01,2027-09-07,,,,N,0,-13,"PC1010:SS, AU1180:FF","2.01, 2.02, 2.03, 2.04, 2.05",Level of effort

@@ -1502,12 +1502,27 @@ function loadScript(src) {
 }
 let dlPromise = null;
 function getDownloads() { if (!window.claude || !window.claude.use) return Promise.resolve(undefined); if (!dlPromise) dlPromise = window.claude.use('downloads').catch(() => null); return dlPromise; }
+const DL_MSG = {
+  declined: 'Download cancelled at the confirmation prompt.',
+  extension_not_enabled: 'This view does not allow this file type to be downloaded. Open the artifact on claude.ai in a desktop browser tab and try again.',
+  rejected_extension: 'This file type is not allowed for downloads here.',
+  rate_limited: 'A download prompt is already open. Confirm or close it, then try again.',
+  too_large: 'The file is too large for this destination.',
+  unavailable: 'Downloads are not available in this view. Open the artifact on claude.ai in a desktop browser tab.',
+  not_granted: 'Downloads are turned off for this page. Allow them in the artifact\'s Permissions menu, then try again.',
+};
 async function saveFile(filename, data) {
   const dl = await getDownloads();
-  if (dl) { try { await dl.save({ filename, data }); return { ok: true, msg: `${filename} saved.` }; } catch (e) { if (e && e.code === 'declined') return { ok: false, msg: 'Download cancelled.' }; return { ok: false, msg: `Could not save ${filename} (${(e && e.code) || 'error'}).` }; } }
+  if (dl) {
+    try { await dl.save({ filename, data }); return { ok: true, msg: `${filename}: confirm the save prompt to download it.` }; }
+    catch (e) { const code = (e && e.code) || 'unavailable'; console.warn('downloads.save failed', code, e && e.message); return { ok: false, code, msg: `${filename} was not saved. ${DL_MSG[code] || DL_MSG.unavailable} (code: ${code})` }; }
+  }
   if (dl === undefined) { const blob = data instanceof Blob ? data : new Blob([data]); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = filename; document.body.appendChild(a); a.click(); a.remove(); return { ok: true, msg: `${filename} downloaded.` }; }
-  return { ok: false, msg: 'Downloads are not available in this view. Open the artifact on claude.ai to export files.' };
+  return { ok: false, code: 'unavailable', msg: `${filename} was not saved. ${DL_MSG.unavailable}` };
 }
+// Warm up the downloads capability and export libraries so a click saves straight away.
+function warmExports(libs) { getDownloads(); libs.forEach((l) => (l === 'autotable' ? loadScript(LIBS.jspdf).then(() => loadScript(LIBS.autotable)) : loadScript(LIBS[l])).catch(() => {})); }
+function DlStatus({ r }) { if (!r) return null; return html`<div class=${r.ok ? 'note' : 'warnline'} role="status" style=${{ marginTop: '8px' }}>${r.msg}</div>`; }
 let samplePromise = null;
 function getSample() { if (!window.claude || !window.claude.use) return Promise.resolve(null); if (!samplePromise) samplePromise = window.claude.use('sample').catch(() => null); return samplePromise; }
 const store = { get(k) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }, del(k) { try { localStorage.removeItem(k); } catch (e) { /* ignore */ } } };
@@ -1659,7 +1674,7 @@ function Dashboard({ m, go }) {
 function BoqView({ state, setState, m, toast }) {
   const [drag, setDrag] = useState(false); const [busy, setBusy] = useState(''); const [filter, setFilter] = useState(''); const [stageF, setStageF] = useState('all'); const [ai, setAi] = useState(null);
   const boq = state.boq; const fileRef = useRef(null);
-  useEffect(() => { getSample().then((s) => setAi((a) => a || (s ? 'ready' : 'off'))); }, []);
+  useEffect(() => { getSample().then((s) => setAi((a) => a || (s ? 'ready' : 'off'))); warmExports(['xlsx']); }, []);
   const apply = (parsed, source) => { parsed.source = source; setState((s) => ({ ...s, boq: parsed, nocOverrides: {}, subOverrides: {}, p6Import: null })); toast(`${parsed.items.length} BOQ items parsed. WBS, P6 programme, budget, cash flow, submittals and NOCs regenerated.`); };
   const handleFile = async (file) => {
     if (!file) return; const name = file.name; const ext = name.split('.').pop().toLowerCase();
@@ -1923,12 +1938,13 @@ function CalendarPanel({ state, setState, m }) {
 }
 
 function P6Panel({ state, setState, m, toast }) {
-  const [table, setTable] = useState('TASK'); const fileRef = useRef(null); const [busy, setBusy] = useState(false);
+  const [table, setTable] = useState('TASK'); const fileRef = useRef(null); const [busy, setBusy] = useState(false); const [res, setRes] = useState(null);
+  useEffect(() => warmExports(['jszip', 'xlsx']), []);
   const xer = useMemo(() => E.toXER(m), [m]);
   const preview = useMemo(() => { const lines = xer.split('\r\n'); const i = lines.findIndex((l) => l === `%T\t${table}`); if (i < 0) return ''; const out = []; for (let k = i; k < lines.length && out.length < 40; k++) { if (k > i && lines[k].startsWith('%T')) break; out.push(lines[k].length > 260 ? lines[k].slice(0, 260) + ' …' : lines[k]); } return out.join('\n'); }, [xer, table]);
   const base = `${state.project.code}_P6_${state.project.dataDate}`;
-  const exportZip = async () => { setBusy(true); try { await loadScript(LIBS.jszip); const z = new JSZip(); z.file(`${base}.xer`, xer); z.file(`${base}.xml`, E.toP6XML(m)); z.file(`${base}_activities.csv`, E.csvOf(E.activitiesTable(m))); z.file('README.txt', `SiteLedger UAE: Primavera P6 exchange package\nProject: ${state.project.name}\nData date: ${state.project.dataDate}\n\n${base}.xer  Import in P6 Professional (File > Import > XER). Contains PROJECT, CALENDAR (UAE work week + holidays), PROJWBS (16 lifecycle stages), TASK (baseline as target dates, current early/late dates, float, actuals), TASKPRED (FS/SS/FF + lags) and UDFs (BOQ refs, duration basis).\n${base}.xml  P6 XML (APIBusinessObjects) for P6 EPPM or tools that read XML.\n${base}_activities.csv  Flat activity list for Excel.\n\nAfter updating in P6, export an .xer and import it in SiteLedger to sync dates, float and critical path.\nCheck an import in a sandbox P6 database before using it on a live project.\n`); const buf = await z.generateAsync({ type: 'arraybuffer' }); const r = await saveFile(`${base}.zip`, new Blob([buf])); toast(r.msg); } catch (e) { toast(e.message); } finally { setBusy(false); } };
-  const exportXlsx = async () => { setBusy(true); try { await loadScript(LIBS.xlsx); const wb = XLSX.utils.book_new(); const at = E.activitiesTable(m); const ws = XLSX.utils.aoa_to_sheet([at.head, ...at.rows]); ws['!cols'] = at.head.map((h, i) => ({ wch: i === 1 ? 52 : i >= 17 ? 30 : 12 })); XLSX.utils.book_append_sheet(wb, ws, 'Activities'); XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['Predecessor', 'Successor', 'Type', 'Lag (WD)'], ...m.curNet.rels.map((r) => [m.actByKey.get(r.from).code, m.actByKey.get(r.to).code, r.type, r.lag])]), 'Relationships'); XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['Norm', 'Unit', 'Output per day', 'Match'], ...state.settings.norms.map((n) => [n.label, n.unit, n.perDay, n.match])]), 'Productivity norms'); XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['Date', 'Holiday'], ...E.UAE_HOLIDAYS]), 'UAE holidays'); const out = XLSX.write(wb, { type: 'array', bookType: 'xlsx' }); const r = await saveFile(`${base}.xlsx`, new Blob([out])); toast(r.msg); } catch (e) { toast(e.message); } finally { setBusy(false); } };
+  const exportZip = async () => { setBusy(true); try { await loadScript(LIBS.jszip); const z = new JSZip(); z.file(`${base}.xer`, xer); z.file(`${base}.xml`, E.toP6XML(m)); z.file(`${base}_activities.csv`, E.csvOf(E.activitiesTable(m))); z.file('README.txt', `SiteLedger UAE: Primavera P6 exchange package\nProject: ${state.project.name}\nData date: ${state.project.dataDate}\n\n${base}.xer  Import in P6 Professional (File > Import > XER). Contains PROJECT, CALENDAR (UAE work week + holidays), PROJWBS (16 lifecycle stages), TASK (baseline as target dates, current early/late dates, float, actuals), TASKPRED (FS/SS/FF + lags) and UDFs (BOQ refs, duration basis).\n${base}.xml  P6 XML (APIBusinessObjects) for P6 EPPM or tools that read XML.\n${base}_activities.csv  Flat activity list for Excel.\n\nAfter updating in P6, export an .xer and import it in SiteLedger to sync dates, float and critical path.\nCheck an import in a sandbox P6 database before using it on a live project.\n`); const buf = await z.generateAsync({ type: 'arraybuffer' }); const r = await saveFile(`${base}.zip`, new Blob([buf])); setRes(r); toast(r.msg); } catch (e) { setRes({ ok: false, msg: e.message }); toast(e.message); } finally { setBusy(false); } };
+  const exportXlsx = async () => { setBusy(true); try { await loadScript(LIBS.xlsx); const wb = XLSX.utils.book_new(); const at = E.activitiesTable(m); const ws = XLSX.utils.aoa_to_sheet([at.head, ...at.rows]); ws['!cols'] = at.head.map((h, i) => ({ wch: i === 1 ? 52 : i >= 17 ? 30 : 12 })); XLSX.utils.book_append_sheet(wb, ws, 'Activities'); XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['Predecessor', 'Successor', 'Type', 'Lag (WD)'], ...m.curNet.rels.map((r) => [m.actByKey.get(r.from).code, m.actByKey.get(r.to).code, r.type, r.lag])]), 'Relationships'); XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['Norm', 'Unit', 'Output per day', 'Match'], ...state.settings.norms.map((n) => [n.label, n.unit, n.perDay, n.match])]), 'Productivity norms'); XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['Date', 'Holiday'], ...E.UAE_HOLIDAYS]), 'UAE holidays'); const out = XLSX.write(wb, { type: 'array', bookType: 'xlsx' }); const r = await saveFile(`${base}.xlsx`, new Blob([out])); setRes(r); toast(r.msg); } catch (e) { setRes({ ok: false, msg: e.message }); toast(e.message); } finally { setBusy(false); } };
   const importXer = async (file) => { if (!file) return; try { const text = await file.text(); const res = E.parseXER(text, m.cal); const codes = new Set(m.acts.map((a) => a.code)); const matched = Object.keys(res.tasks).filter((c) => codes.has(c)); let changed = 0; matched.forEach((c) => { const a = m.acts.find((x) => x.code === c); const t = res.tasks[c]; if (t.es !== a.cur.es || t.ef !== a.cur.ef || t.tf !== a.cur.tf) changed++; }); const tasks = {}; matched.forEach((c) => { tasks[c] = res.tasks[c]; }); setState((s) => ({ ...s, p6Import: { fileName: file.name, at: new Date().toISOString().slice(0, 16).replace('T', ' '), tasks, total: res.count, matched: matched.length, changed, rels: res.rels, project: res.project, dataDate: res.dataDate } })); toast(`P6 import: ${matched.length} of ${res.count} activities matched by Activity ID; ${changed} with changed dates or float.`); } catch (e) { toast(e.message || 'Could not read the .xer file.'); } };
   const imp = state.p6Import;
   return html`<div class="panel-b grid" style=${{ gap: '16px' }}>
@@ -1937,6 +1953,7 @@ function P6Panel({ state, setState, m, toast }) {
         <h3 style=${{ fontSize: '15px' }}>Export to Primavera P6</h3>
         <p class="note" style=${{ margin: 0 }}>The .zip holds the native <b>.xer</b> (PROJECT, CALENDAR, PROJWBS, TASK, TASKPRED, UDF tables), a <b>P6 XML</b> file and a CSV activity list. Baseline dates go out as target dates; current dates, float and actuals go out as early/late and actual dates.</p>
         <div class="row"><button class="btn primary" disabled=${busy} onClick=${exportZip}>Export P6 package (.zip: XER + XML + CSV)</button><button class="btn" disabled=${busy} onClick=${exportXlsx}>Export programme (.xlsx)</button></div>
+        <${DlStatus} r=${res} />
         <span class="note">${m.acts.length} activities · ${m.curNet.rels.length} relationships · 17 WBS nodes · calendar "${7 - state.settings.cal.offDays.length}-day week, ${state.settings.cal.hoursPerDay} h/day"</span>
       </div>
       <div class="grid" style=${{ gap: '10px', alignContent: 'start' }}>
@@ -2125,10 +2142,12 @@ function ReportsView({ m, toast, sub, setSub }) {
   const [wk, setWk] = useState(weeks[0]);
   const curMonth = m.months.findIndex((x) => x.endDay >= m.dataDay); const [mi, setMi] = useState(curMonth);
   const rep = useMemo(() => (kind === 'dpr' ? E.dprReport(m, dprDate || m.project.dataDate) : kind === 'wpr' ? E.wprReport(m, wk) : E.mprReport(m, Math.max(0, mi))), [m, kind, dprDate, wk, mi]);
-  const [busy, setBusy] = useState('');
+  const [busy, setBusy] = useState(''); const [res, setRes] = useState(null);
+  useEffect(() => warmExports(['jspdf', 'autotable', 'xlsx']), []);
   const fname = `${m.project.code}_${rep.number}_${kind === 'dpr' ? dprDate : kind === 'wpr' ? wk : m.months[mi].endISO.slice(0, 7)}`;
-  const doPdf = async () => { setBusy('pdf'); try { const buf = await reportToPDF(rep, m); toast((await saveFile(fname + '.pdf', new Blob([buf]))).msg); } catch (e) { toast(e.message || 'PDF export failed.'); } finally { setBusy(''); } };
-  const doXlsx = async () => { setBusy('xlsx'); try { const out = await reportToXLSX(rep); toast((await saveFile(fname + '.xlsx', new Blob([out]))).msg); } catch (e) { toast(e.message || 'Excel export failed.'); } finally { setBusy(''); } };
+  const run = async (kindX, make, ext) => { setBusy(kindX); setRes(null); try { const data = await make(); const r = await saveFile(fname + ext, new Blob([data])); setRes(r); toast(r.msg); } catch (e) { const r = { ok: false, msg: e.message || 'Export failed.' }; setRes(r); toast(r.msg); } finally { setBusy(''); } };
+  const doPdf = () => run('pdf', () => reportToPDF(rep, m), '.pdf');
+  const doXlsx = () => run('xlsx', () => reportToXLSX(rep), '.xlsx');
   return html`<${Fragment}>
     <${Panel} title="One-click progress reports" sub="Generated from BOQ quantities, diaries, EVM and the P6 current update. Preview below; export to PDF or Excel."
       actions=${html`<button class="btn primary" disabled=${!!busy} onClick=${doPdf}>${busy === 'pdf' ? 'Building PDF…' : 'Export PDF'}</button><button class="btn" disabled=${!!busy} onClick=${doXlsx}>${busy === 'xlsx' ? 'Building Excel…' : 'Export Excel'}</button>`}>
@@ -2138,6 +2157,7 @@ function ReportsView({ m, toast, sub, setSub }) {
         ${kind === 'wpr' && html`<label class="field" style=${{ display: 'flex', gap: '8px', alignItems: 'center' }}>Week ending <select class="inp sm" id="wpr-date" value=${wk} onChange=${(e) => setWk(e.target.value)} style=${{ width: 'auto' }}>${weeks.map((d) => html`<option key=${d} value=${d}>${fmtDate(E.parseISO(d))}</option>`)}</select></label>`}
         ${kind === 'mpr' && html`<label class="field" style=${{ display: 'flex', gap: '8px', alignItems: 'center' }}>Month <select class="inp sm" id="mpr-month" value=${mi} onChange=${(e) => setMi(Number(e.target.value))} style=${{ width: 'auto' }}>${m.months.slice(0, curMonth + 1).map((x, i) => html`<option key=${i} value=${i}>${x.label}</option>`).reverse()}</select></label>`}
       </div>
+      <${DlStatus} r=${res} />
     <//>
     <${ReportPreview} rep=${rep} m=${m} />
   <//>`;

@@ -1,0 +1,486 @@
+ERMHDR	19.12	2026-11-23	Project	SITELEDGER	SiteLedger	dbxDatabaseNoName	Project Management	AED
+%T	CURRTYPE
+%F	curr_id	decimal_digit_cnt	curr_symbol	decimal_symbol	digit_group_symbol	pos_curr_fmt_type	neg_curr_fmt_type	curr_type	curr_short_name	group_digit_cnt	base_exch_rate
+%R	1	2	AED	.	,	#1.1	(#1.1)	UAE Dirham	AED	3	1
+%T	PROJECT
+%F	proj_id	fy_start_month_num	rsrc_self_add_flag	allow_complete_flag	rsrc_multi_assign_flag	checkout_flag	project_flag	step_complete_flag	cost_qty_recalc_flag	batch_sum_flag	name_sep_char	def_complete_pct_type	proj_short_name	acct_id	orig_proj_id	source_proj_id	base_type_id	clndr_id	sum_base_proj_id	task_code_base	task_code_step	priority_num	wbs_max_sum_level	strgy_priority_num	last_checksum	critical_drtn_hr_cnt	def_cost_per_qty	last_recalc_date	plan_start_date	plan_end_date	scd_end_date	add_date	last_tasksum_date	fcst_start_date	def_duration_type	task_code_prefix	guid	def_qty_type	add_by_name	web_local_root_path	proj_url	def_rate_type	add_act_remain_flag	act_this_per_link_flag	def_task_type	act_pct_link_flag	critical_path_type	task_code_prefix_flag	def_rollup_dates_flag	use_project_baseline_flag	rem_target_link_flag	reset_planned_flag	allow_neg_act_flag	sum_assign_level	last_fin_dates_id	fintmpl_id	last_baseline_update_date	cr_external_key	apply_actuals_date	location_id	last_schedule_date	loaded_scope_level	export_flag	new_fin_dates_id	baselines_to_export	baseline_names_to_export	next_data_date	close_period_flag	sum_refresh_date	trsrcsum_loaded
+%R	1	1	Y	Y	Y	N	Y	N	N	Y	.	CP_Phys	AFR-G4					1		1000	10	10	0	100		0	0	2026-11-23 08:00	2026-03-01 08:00	2027-10-31 17:00	2027-09-08 17:00	2026-11-23 08:00		2026-11-23 08:00	DT_FixedDUR2			QT_Hour	SiteLedger			COST_PER_QTY	N	Y	TT_Task	N	CT_TotFloat	Y	Y	Y	Y	N	N	SL_Taskrsrc							2026-11-23 08:00		Y				2026-11-23 08:00			
+%T	CALENDAR
+%F	clndr_id	default_flag	clndr_name	proj_id	base_clndr_id	last_chng_date	clndr_type	day_hr_cnt	week_hr_cnt	month_hr_cnt	year_hr_cnt	rsrc_private	clndr_data
+%R	1	Y	UAE 6-day week + public holidays	1		2026-11-23 08:00	CA_Project	9	54	234	2808	N	(0||CalendarData()( (0||DaysOfWeek()( (0||1()( (0||0(s|07:00|f|17:00)()))) (0||2()( (0||0(s|07:00|f|17:00)()))) (0||3()( (0||0(s|07:00|f|17:00)()))) (0||4()( (0||0(s|07:00|f|17:00)()))) (0||5()( (0||0(s|07:00|f|17:00)()))) (0||6()()) (0||7()( (0||0(s|07:00|f|17:00)()))))) (0||VIEW(ShowTotal|Y)()) (0||Exceptions()( (0||0(d|46023)()) (0||1(d|46101)()) (0||2(d|46102)()) (0||3(d|46103)()) (0||4(d|46168)()) (0||5(d|46169)()) (0||6(d|46170)()) (0||7(d|46171)()) (0||8(d|46189)()) (0||9(d|46259)()) (0||10(d|46357)()) (0||11(d|46358)()) (0||12(d|46359)()) (0||13(d|46388)()) (0||14(d|46456)()) (0||15(d|46457)()) (0||16(d|46458)()) (0||17(d|46522)()) (0||18(d|46523)()) (0||19(d|46524)()) (0||20(d|46525)()) (0||21(d|46544)()) (0||22(d|46613)()) (0||23(d|46722)()) (0||24(d|46723)()) (0||25(d|46724)()) (0||26(d|46753)()) (0||27(d|46809)()) (0||28(d|46810)()) (0||29(d|46811)()) (0||30(d|46877)()) (0||31(d|46878)()) (0||32(d|46879)()) (0||33(d|46880)()) (0||34(d|46898)()) (0||35(d|46968)()) (0||36(d|47088)()) (0||37(d|47089)()) (0||38(d|47090)())))))
+%T	PROJWBS
+%F	wbs_id	proj_id	obs_id	seq_num	est_wt	proj_node_flag	sum_data_flag	status_code	wbs_short_name	wbs_name	phase_id	parent_wbs_id
+%R	100	1		0	1	Y	Y	WS_Open	AFR-G4	Al Furjan G+4 Residential Building		
+%R	101	1		10	1	N	N	WS_Open	01.PC	Pre-Construction		100
+%R	102	1		20	1	N	N	WS_Open	02.AU	Authority Approvals & Permits		100
+%R	103	1		30	1	N	N	WS_Open	03.MB	Site Mobilization & Preparation		100
+%R	104	1		40	1	N	N	WS_Open	04.SB	Substructure Works		100
+%R	105	1		50	1	N	N	WS_Open	05.SS	Superstructure – RCC		100
+%R	106	1		60	1	N	N	WS_Open	06.BW	Blockwork & Masonry		100
+%R	107	1		70	1	N	N	WS_Open	07.M1	MEP First Fix & Builder's Work		100
+%R	108	1		80	1	N	N	WS_Open	08.FN	Plastering & Internal Finishing		100
+%R	109	1		90	1	N	N	WS_Open	09.FC	External Façade & Roof		100
+%R	110	1		100	1	N	N	WS_Open	10.M2	MEP Second Fix		100
+%R	111	1		110	1	N	N	WS_Open	11.EX	External Infrastructure & Site Development		100
+%R	112	1		120	1	N	N	WS_Open	12.TC	Testing & Commissioning		100
+%R	113	1		130	1	N	N	WS_Open	13.SN	Snagging & Rectification		100
+%R	114	1		140	1	N	N	WS_Open	14.HO	Final Cleaning & Handover		100
+%R	115	1		150	1	N	N	WS_Open	15.DL	Defects Liability Period & Closure		100
+%R	116	1		160	1	N	N	WS_Open	16.PM	Project Management & Document Control		100
+%T	TASK
+%F	task_id	proj_id	wbs_id	clndr_id	phys_complete_pct	rev_fdbk_flag	est_wt	lock_plan_flag	auto_compute_act_flag	complete_pct_type	task_type	duration_type	status_code	task_code	task_name	rsrc_id	total_float_hr_cnt	free_float_hr_cnt	remain_drtn_hr_cnt	act_work_qty	remain_work_qty	target_work_qty	target_drtn_hr_cnt	target_equip_qty	act_equip_qty	remain_equip_qty	cstr_date	act_start_date	act_end_date	late_start_date	late_end_date	expect_end_date	early_start_date	early_end_date	restart_date	reend_date	target_start_date	target_end_date	rem_late_start_date	rem_late_end_date	cstr_type	priority_type	suspend_date	resume_date	float_path	float_path_order	guid	tmpl_guid	cstr_date2	cstr_type2	driving_path_flag	act_this_per_work_qty	act_this_per_equip_qty	external_early_start_date	external_late_end_date	create_date	update_date	create_user	update_user	location_id
+%R	2000	1	101	1	100	N	1	N	N	CP_Phys	TT_Mile	DT_FixedDUR2	TK_Complete	PC1010	Notice to Proceed / Commencement Date				0	0	0	0	0	0	0	0		2026-03-01 08:00	2026-03-01 17:00	2026-03-01 08:00	2026-03-01 17:00		2026-03-01 08:00	2026-03-01 17:00	2026-03-01 08:00	2026-03-01 17:00	2026-03-01 08:00	2026-03-01 17:00	2026-03-01 08:00	2026-03-01 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2001	1	101	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	PC1020	Baseline programme, cash flow & submittal schedule				0	0	0	0	180	0	0	0		2026-03-01 08:00	2026-03-30 17:00	2026-03-01 08:00	2026-03-30 17:00		2026-03-01 08:00	2026-03-30 17:00	2026-03-01 08:00	2026-03-30 17:00	2026-03-01 08:00	2026-03-30 17:00	2026-03-01 08:00	2026-03-30 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2002	1	101	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	PC1030	HSE, QA/QC, ITP & environmental plans				0	0	0	0	135	0	0	0		2026-03-01 08:00	2026-03-24 17:00	2026-03-01 08:00	2026-03-24 17:00		2026-03-01 08:00	2026-03-24 17:00	2026-03-01 08:00	2026-03-24 17:00	2026-03-01 08:00	2026-03-24 17:00	2026-03-01 08:00	2026-03-24 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2003	1	101	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	PC1040	Insurances, performance & advance payment bonds				0	0	0	0	90	0	0	0		2026-03-01 08:00	2026-03-15 17:00	2026-03-01 08:00	2026-03-15 17:00		2026-03-01 08:00	2026-03-15 17:00	2026-03-01 08:00	2026-03-15 17:00	2026-03-01 08:00	2026-03-15 17:00	2026-03-01 08:00	2026-03-15 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2004	1	102	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	AU1010	Dubai Municipality: Affection plan & site demarcation				0	0	0	0	45	0	0	0		2026-03-03 08:00	2026-03-12 17:00	2026-03-03 08:00	2026-03-12 17:00		2026-03-03 08:00	2026-03-12 17:00	2026-03-03 08:00	2026-03-12 17:00	2026-03-01 08:00	2026-03-08 17:00	2026-03-03 08:00	2026-03-12 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2005	1	102	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	AU1020	Dubai Municipality: Building permit (structural & architectural approval)				0	0	0	0	270	0	0	0		2026-03-14 08:00	2026-04-23 17:00	2026-03-14 08:00	2026-04-23 17:00		2026-03-14 08:00	2026-04-23 17:00	2026-03-14 08:00	2026-04-23 17:00	2026-03-09 08:00	2026-04-16 17:00	2026-03-14 08:00	2026-04-23 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2006	1	102	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	AU1030	DEWA: Electricity load NOC (building permit stage)				0	0	0	0	135	0	0	0		2026-03-10 08:00	2026-03-31 17:00	2026-03-10 08:00	2026-03-31 17:00		2026-03-10 08:00	2026-03-31 17:00	2026-03-10 08:00	2026-03-31 17:00	2026-03-09 08:00	2026-03-30 17:00	2026-03-10 08:00	2026-03-31 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2007	1	102	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	AU1040	DEWA: Water NOC (building permit stage)				0	0	0	0	90	0	0	0		2026-03-11 08:00	2026-03-26 17:00	2026-03-11 08:00	2026-03-26 17:00		2026-03-11 08:00	2026-03-26 17:00	2026-03-11 08:00	2026-03-26 17:00	2026-03-09 08:00	2026-03-24 17:00	2026-03-11 08:00	2026-03-26 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2008	1	102	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	AU1050	RTA: Right-of-way & site access NOC				0	0	0	0	108	0	0	0		2026-03-16 08:00	2026-04-02 17:00	2026-03-16 08:00	2026-04-02 17:00		2026-03-16 08:00	2026-04-02 17:00	2026-03-16 08:00	2026-04-02 17:00	2026-03-15 08:00	2026-03-31 17:00	2026-03-16 08:00	2026-04-02 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2009	1	102	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	AU1060	Etisalat / du: Telecom infrastructure NOC				0	0	0	0	90	0	0	0		2026-03-18 08:00	2026-04-02 17:00	2026-03-18 08:00	2026-04-02 17:00		2026-03-18 08:00	2026-04-02 17:00	2026-03-18 08:00	2026-04-02 17:00	2026-03-15 08:00	2026-03-29 17:00	2026-03-18 08:00	2026-04-02 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2010	1	102	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	AU1070	Dubai Municipality: Excavation & shoring permit				0	0	0	0	108	0	0	0		2026-03-25 08:00	2026-04-09 17:00	2026-03-25 08:00	2026-04-09 17:00		2026-03-25 08:00	2026-04-09 17:00	2026-03-25 08:00	2026-04-09 17:00	2026-03-23 08:00	2026-04-05 17:00	2026-03-25 08:00	2026-04-09 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2011	1	102	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	AU1080	DM Environment: Dewatering & discharge permit				0	0	0	0	135	0	0	0		2026-03-28 08:00	2026-04-15 17:00	2026-03-28 08:00	2026-04-15 17:00		2026-03-28 08:00	2026-04-15 17:00	2026-03-28 08:00	2026-04-15 17:00	2026-03-23 08:00	2026-04-08 17:00	2026-03-28 08:00	2026-04-15 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2012	1	102	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	AU1090	Civil Defence: Fire & life safety drawings approval				0	0	0	0	225	0	0	0		2026-05-16 08:00	2026-06-18 17:00	2026-05-16 08:00	2026-06-18 17:00		2026-05-16 08:00	2026-06-18 17:00	2026-05-16 08:00	2026-06-18 17:00	2026-05-11 08:00	2026-06-11 17:00	2026-05-16 08:00	2026-06-18 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2013	1	102	1	60	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Active	AU1100	DEWA: Substation NOC & RMU / transformer approval		738		216	0	0	0	270	0	0	0		2026-06-27 08:00		2026-06-27 08:00	2027-04-01 17:00		2026-06-27 08:00	2026-12-24 17:00	2026-11-24 08:00	2026-12-24 17:00	2026-06-13 08:00	2026-07-18 17:00	2026-06-27 08:00	2027-04-01 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2014	1	102	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	AU1110	Dubai Municipality: Sewer / drainage connection NOC				0	0	0	0	180	0	0	0		2026-09-16 08:00	2026-10-15 17:00	2026-09-16 08:00	2026-10-15 17:00		2026-09-16 08:00	2026-10-15 17:00	2026-09-16 08:00	2026-10-15 17:00	2026-09-10 08:00	2026-10-03 17:00	2026-09-16 08:00	2026-10-15 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2015	1	102	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	AU1120	RTA: Road cutting & utility trench NOC				0	0	0	0	135	0	0	0		2026-10-06 08:00	2026-10-22 17:00	2026-10-06 08:00	2026-10-22 17:00		2026-10-06 08:00	2026-10-22 17:00	2026-10-06 08:00	2026-10-22 17:00	2026-10-04 08:00	2026-10-20 17:00	2026-10-06 08:00	2026-10-22 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2016	1	102	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	AU1130	DM Public Health: Swimming pool permit & inspection		936		135	0	0	0	135	0	0	0				2027-09-30 08:00	2027-10-17 17:00		2027-05-30 08:00	2027-06-16 17:00	2027-05-30 08:00	2027-06-16 17:00	2027-05-19 08:00	2027-06-05 17:00	2027-09-30 08:00	2027-10-17 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2017	1	102	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	AU1140	DEWA: DEWA final inspection & energisation		666		135	0	0	0	135	0	0	0				2027-08-08 08:00	2027-08-25 17:00		2027-05-08 08:00	2027-05-29 17:00	2027-05-08 08:00	2027-05-29 17:00	2027-04-27 08:00	2027-05-13 17:00	2027-08-08 08:00	2027-08-25 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2018	1	102	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	AU1150	Dubai Municipality: Lift inspection & operating certificate		1062		90	0	0	0	90	0	0	0				2027-10-06 08:00	2027-10-17 17:00		2027-05-19 08:00	2027-05-30 17:00	2027-05-19 08:00	2027-05-30 17:00	2027-05-03 08:00	2027-05-13 17:00	2027-10-06 08:00	2027-10-17 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2019	1	102	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	AU1160	Civil Defence: Civil Defence final inspection & completion certificate		306		135	0	0	0	135	0	0	0				2027-09-07 08:00	2027-09-23 17:00		2027-07-28 08:00	2027-08-15 17:00	2027-07-28 08:00	2027-08-15 17:00	2027-07-13 08:00	2027-07-29 17:00	2027-09-07 08:00	2027-09-23 17:00		PT_Normal									Y					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2020	1	102	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	AU1170	DEWA: Water meter & final water connection		846		90	0	0	0	90	0	0	0				2027-10-06 08:00	2027-10-17 17:00		2027-06-17 08:00	2027-06-28 17:00	2027-06-17 08:00	2027-06-28 17:00	2027-06-01 08:00	2027-06-13 17:00	2027-10-06 08:00	2027-10-17 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2021	1	102	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	AU1180	Dubai Municipality: Building Completion Certificate		306		180	0	0	0	180	0	0	0				2027-09-25 08:00	2027-10-17 17:00		2027-08-16 08:00	2027-09-07 17:00	2027-08-16 08:00	2027-09-07 17:00	2027-07-31 08:00	2027-08-23 17:00	2027-09-25 08:00	2027-10-17 17:00		PT_Normal									Y					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2022	1	102	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	AU1190	Dubai Municipality: Makani number & address plate		441		45	0	0	0	45	0	0	0				2027-10-12 08:00	2027-10-17 17:00		2027-08-16 08:00	2027-08-21 17:00	2027-08-16 08:00	2027-08-21 17:00	2027-07-31 08:00	2027-08-04 17:00	2027-10-12 08:00	2027-10-17 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2023	1	101	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	PC1050	Submittal approval (MAR + shop drawings) – Façade & glazing				0	0	0	0	270	0	0	0		2026-07-09 08:00	2026-08-13 17:00	2026-07-09 08:00	2026-08-13 17:00		2026-07-09 08:00	2026-08-13 17:00	2026-07-09 08:00	2026-08-13 17:00	2026-07-05 08:00	2026-08-08 17:00	2026-07-09 08:00	2026-08-13 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2024	1	101	1	98.8	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Active	PC1060	Procure, manufacture & deliver – Façade & glazing		504		18	0	0	0	756	0	0	0		2026-08-15 08:00		2026-08-15 08:00	2027-02-02 17:00		2026-08-15 08:00	2026-11-25 17:00	2026-11-24 08:00	2026-11-25 17:00	2026-08-09 08:00	2026-11-15 17:00	2026-08-15 08:00	2027-02-02 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2025	1	101	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	PC1070	Submittal approval (MAR + shop drawings) – LV panels & MDBs				0	0	0	0	270	0	0	0		2026-09-27 08:00	2026-11-01 17:00	2026-09-27 08:00	2026-11-01 17:00		2026-09-27 08:00	2026-11-01 17:00	2026-09-27 08:00	2026-11-01 17:00	2026-09-20 08:00	2026-10-24 17:00	2026-09-27 08:00	2026-11-01 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2026	1	101	1	25	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Active	PC1080	Procure, manufacture & deliver – LV panels & MDBs		927		513	0	0	0	648	0	0	0		2026-11-02 08:00		2026-11-02 08:00	2027-06-09 17:00		2026-11-02 08:00	2027-02-01 17:00	2026-11-24 08:00	2027-02-01 17:00	2026-10-25 08:00	2027-01-19 17:00	2026-11-02 08:00	2027-06-09 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2027	1	101	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	PC1090	Submittal approval (MAR + shop drawings) – HVAC equipment				0	0	0	0	270	0	0	0		2026-09-05 08:00	2026-10-10 17:00	2026-09-05 08:00	2026-10-10 17:00		2026-09-05 08:00	2026-10-10 17:00	2026-09-05 08:00	2026-10-10 17:00	2026-08-30 08:00	2026-10-03 17:00	2026-09-05 08:00	2026-10-10 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2028	1	101	1	42.9	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Active	PC1100	Procure, manufacture & deliver – HVAC equipment		756		459	0	0	0	756	0	0	0		2026-10-11 08:00		2026-10-11 08:00	2027-05-05 17:00		2026-10-11 08:00	2027-01-25 17:00	2026-11-24 08:00	2027-01-25 17:00	2026-10-04 08:00	2027-01-12 17:00	2026-10-11 08:00	2027-05-05 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2029	1	101	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	PC1110	Submittal approval (MAR + shop drawings) – Fire pump set				0	0	0	0	270	0	0	0		2026-09-27 08:00	2026-11-01 17:00	2026-09-27 08:00	2026-11-01 17:00		2026-09-27 08:00	2026-11-01 17:00	2026-09-27 08:00	2026-11-01 17:00	2026-09-20 08:00	2026-10-24 17:00	2026-09-27 08:00	2026-11-01 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2030	1	101	1	25	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Active	PC1120	Procure, manufacture & deliver – Fire pump set		972		513	0	0	0	648	0	0	0		2026-11-02 08:00		2026-11-02 08:00	2027-06-15 17:00		2026-11-02 08:00	2027-02-01 17:00	2026-11-24 08:00	2027-02-01 17:00	2026-10-25 08:00	2027-01-19 17:00	2026-11-02 08:00	2027-06-15 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2031	1	101	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	PC1130	Submittal approval (MAR + shop drawings) – Passenger lifts				0	0	0	0	270	0	0	0		2026-08-13 08:00	2026-09-19 17:00	2026-08-13 08:00	2026-09-19 17:00		2026-08-13 08:00	2026-09-19 17:00	2026-08-13 08:00	2026-09-19 17:00	2026-08-08 08:00	2026-09-12 17:00	2026-08-13 08:00	2026-09-19 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2032	1	101	1	50	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Active	PC1140	Procure, manufacture & deliver – Passenger lifts		486		504	0	0	0	972	0	0	0		2026-09-20 08:00		2026-09-20 08:00	2027-04-06 17:00		2026-09-20 08:00	2027-01-31 17:00	2026-11-24 08:00	2027-01-31 17:00	2026-09-13 08:00	2027-01-19 17:00	2026-09-20 08:00	2027-04-06 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2033	1	101	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	PC1150	Submittal approval (MAR + shop drawings) – Standby generator				0	0	0	0	270	0	0	0		2026-09-27 08:00	2026-11-01 17:00	2026-09-27 08:00	2026-11-01 17:00		2026-09-27 08:00	2026-11-01 17:00	2026-09-27 08:00	2026-11-01 17:00	2026-09-20 08:00	2026-10-24 17:00	2026-09-27 08:00	2026-11-01 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2034	1	101	1	18.4	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Active	PC1160	Procure, manufacture & deliver – Standby generator		711		765	0	0	0	864	0	0	0		2026-11-02 08:00		2026-11-02 08:00	2027-06-21 17:00		2026-11-02 08:00	2027-03-15 17:00	2026-11-24 08:00	2027-03-15 17:00	2026-10-25 08:00	2027-02-18 17:00	2026-11-02 08:00	2027-06-21 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2035	1	101	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	PC1170	Submittal approval (MAR + shop drawings) – DEWA substation				0	0	0	0	270	0	0	0		2026-07-21 08:00	2026-08-24 17:00	2026-07-21 08:00	2026-08-24 17:00		2026-07-21 08:00	2026-08-24 17:00	2026-07-21 08:00	2026-08-24 17:00	2026-07-16 08:00	2026-08-19 17:00	2026-07-21 08:00	2026-08-24 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2036	1	101	1	60.8	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Active	PC1180	Procure, manufacture & deliver – DEWA substation		504		450	0	0	0	1080	0	0	0		2026-08-26 08:00		2026-08-26 08:00	2027-04-01 17:00		2026-08-26 08:00	2027-01-24 17:00	2026-11-24 08:00	2027-01-24 17:00	2026-08-20 08:00	2027-01-11 17:00	2026-08-26 08:00	2027-04-01 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2037	1	103	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	MB1010	Mobilisation & site establishment				0	0	0	0	225	0	0	0		2026-04-18 08:00	2026-05-16 17:00	2026-04-18 08:00	2026-05-16 17:00		2026-04-18 08:00	2026-05-16 17:00	2026-04-18 08:00	2026-05-16 17:00	2026-04-18 08:00	2026-05-16 17:00	2026-04-18 08:00	2026-05-16 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2038	1	103	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	MB1020	Site clearance & survey				0	0	0	0	54	0	0	0		2026-04-23 08:00	2026-04-29 17:00	2026-04-23 08:00	2026-04-29 17:00		2026-04-23 08:00	2026-04-29 17:00	2026-04-23 08:00	2026-04-29 17:00	2026-04-23 08:00	2026-04-29 17:00	2026-04-23 08:00	2026-04-29 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2039	1	104	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SB1010	Shoring				0	0	0	0	216	0	0	0		2026-05-02 08:00	2026-06-03 17:00	2026-05-02 08:00	2026-06-03 17:00		2026-05-02 08:00	2026-06-03 17:00	2026-05-02 08:00	2026-06-03 17:00	2026-04-30 08:00	2026-05-31 17:00	2026-05-02 08:00	2026-06-03 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2040	1	104	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SB1020	Dewatering				0	0	0	0	630	0	0	0		2026-05-09 08:00	2026-08-13 17:00	2026-05-09 08:00	2026-08-13 17:00		2026-05-09 08:00	2026-08-13 17:00	2026-05-09 08:00	2026-08-13 17:00	2026-05-06 08:00	2026-08-08 17:00	2026-05-09 08:00	2026-08-13 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2041	1	104	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SB1030	Piling				0	0	0	0	144	0	0	0		2026-05-02 08:00	2026-05-20 17:00	2026-05-02 08:00	2026-05-20 17:00		2026-05-02 08:00	2026-05-20 17:00	2026-05-02 08:00	2026-05-20 17:00	2026-04-30 08:00	2026-05-18 17:00	2026-05-02 08:00	2026-05-20 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2042	1	104	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SB1040	Bulk excavation				0	0	0	0	234	0	0	0		2026-06-04 08:00	2026-07-09 17:00	2026-06-04 08:00	2026-07-09 17:00		2026-06-04 08:00	2026-07-09 17:00	2026-06-04 08:00	2026-07-09 17:00	2026-06-01 08:00	2026-07-05 17:00	2026-06-04 08:00	2026-07-09 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2043	1	104	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SB1050	Blinding				0	0	0	0	36	0	0	0		2026-06-24 08:00	2026-06-28 17:00	2026-06-24 08:00	2026-06-28 17:00		2026-06-24 08:00	2026-06-28 17:00	2026-06-24 08:00	2026-06-28 17:00	2026-06-21 08:00	2026-06-25 17:00	2026-06-24 08:00	2026-06-28 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2044	1	104	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SB1060	Anti-termite treatment				0	0	0	0	36	0	0	0		2026-07-01 08:00	2026-07-05 17:00	2026-07-01 08:00	2026-07-05 17:00		2026-07-01 08:00	2026-07-05 17:00	2026-07-01 08:00	2026-07-05 17:00	2026-06-27 08:00	2026-07-01 17:00	2026-07-01 08:00	2026-07-05 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2045	1	104	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SB1070	Substructure waterproofing				0	0	0	0	135	0	0	0		2026-07-04 08:00	2026-07-23 17:00	2026-07-04 08:00	2026-07-23 17:00		2026-07-04 08:00	2026-07-23 17:00	2026-07-04 08:00	2026-07-23 17:00	2026-06-29 08:00	2026-07-19 17:00	2026-07-04 08:00	2026-07-23 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2046	1	104	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SB1080	Raft & retaining walls				0	0	0	0	216	0	0	0		2026-07-09 08:00	2026-08-11 17:00	2026-07-09 08:00	2026-08-11 17:00		2026-07-09 08:00	2026-08-11 17:00	2026-07-09 08:00	2026-08-11 17:00	2026-07-05 08:00	2026-08-06 17:00	2026-07-09 08:00	2026-08-11 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2047	1	104	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SB1090	Backfilling				0	0	0	0	117	0	0	0		2026-08-22 08:00	2026-09-08 17:00	2026-08-22 08:00	2026-09-08 17:00		2026-08-22 08:00	2026-09-08 17:00	2026-08-22 08:00	2026-09-08 17:00	2026-08-16 08:00	2026-09-03 17:00	2026-08-22 08:00	2026-09-08 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2048	1	105	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SS1010	RCC frame – columns, core walls & PT slab – Ground floor				0	0	0	0	135	0	0	0		2026-08-16 08:00	2026-09-06 17:00	2026-08-16 08:00	2026-09-06 17:00		2026-08-16 08:00	2026-09-06 17:00	2026-08-16 08:00	2026-09-06 17:00	2026-08-08 08:00	2026-08-29 17:00	2026-08-16 08:00	2026-09-06 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2049	1	105	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SS1020	RCC frame – columns, core walls & PT slab – Level 1				0	0	0	0	135	0	0	0		2026-09-07 08:00	2026-09-28 17:00	2026-09-07 08:00	2026-09-28 17:00		2026-09-07 08:00	2026-09-28 17:00	2026-09-07 08:00	2026-09-28 17:00	2026-08-30 08:00	2026-09-19 17:00	2026-09-07 08:00	2026-09-28 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2050	1	105	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SS1030	RCC frame – columns, core walls & PT slab – Level 2				0	0	0	0	135	0	0	0		2026-09-29 08:00	2026-10-15 17:00	2026-09-29 08:00	2026-10-15 17:00		2026-09-29 08:00	2026-10-15 17:00	2026-09-29 08:00	2026-10-15 17:00	2026-09-20 08:00	2026-10-06 17:00	2026-09-29 08:00	2026-10-15 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2051	1	105	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SS1040	RCC frame – columns, core walls & PT slab – Level 3				0	0	0	0	135	0	0	0		2026-10-17 08:00	2026-11-04 17:00	2026-10-17 08:00	2026-11-04 17:00		2026-10-17 08:00	2026-11-04 17:00	2026-10-17 08:00	2026-11-04 17:00	2026-10-07 08:00	2026-10-24 17:00	2026-10-17 08:00	2026-11-04 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2052	1	105	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	SS1050	RCC frame – columns, core walls & PT slab – Level 4				0	0	0	0	135	0	0	0		2026-11-05 08:00	2026-11-23 17:00	2026-11-05 08:00	2026-11-23 17:00		2026-11-05 08:00	2026-11-23 17:00	2026-11-05 08:00	2026-11-23 17:00	2026-10-25 08:00	2026-11-10 17:00	2026-11-05 08:00	2026-11-23 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2053	1	105	1	8.2	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Active	SS1060	RCC frame – columns, core walls & PT slab – Roof		603		207	0	0	0	108	0	0	0		2026-11-22 08:00		2026-11-22 08:00	2027-03-14 17:00		2026-11-22 08:00	2026-12-23 17:00	2026-11-24 08:00	2026-12-23 17:00	2026-11-11 08:00	2026-11-24 17:00	2026-11-22 08:00	2027-03-14 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2054	1	106	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	BW1010	Blockwork & lintels – Ground floor				0	0	0	0	216	0	0	0		2026-10-11 08:00	2026-11-08 17:00	2026-10-11 08:00	2026-11-08 17:00		2026-10-11 08:00	2026-11-08 17:00	2026-10-11 08:00	2026-11-08 17:00	2026-09-28 08:00	2026-10-25 17:00	2026-10-11 08:00	2026-11-08 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2055	1	106	1	50.1	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Active	BW1020	Blockwork & lintels – Level 1		297		117	0	0	0	216	0	0	0		2026-11-09 08:00		2026-11-09 08:00	2027-01-19 17:00		2026-11-09 08:00	2026-12-12 17:00	2026-11-24 08:00	2026-12-12 17:00	2026-10-26 08:00	2026-11-22 17:00	2026-11-09 08:00	2027-01-19 17:00		PT_Normal									Y					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2056	1	106	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	BW1030	Blockwork & lintels – Level 2		324		216	0	0	0	216	0	0	0				2027-01-20 08:00	2027-02-20 17:00		2026-12-13 08:00	2027-01-09 17:00	2026-12-13 08:00	2027-01-09 17:00	2026-11-23 08:00	2026-12-23 17:00	2027-01-20 08:00	2027-02-20 17:00		PT_Normal									Y					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2057	1	106	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	BW1040	Blockwork & lintels – Level 3		351		216	0	0	0	216	0	0	0				2027-02-21 08:00	2027-03-25 17:00		2027-01-10 08:00	2027-02-06 17:00	2027-01-10 08:00	2027-02-06 17:00	2026-12-24 08:00	2027-01-20 17:00	2027-02-21 08:00	2027-03-25 17:00		PT_Normal									Y					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2058	1	106	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	BW1050	Blockwork & lintels – Level 4		297		216	0	0	0	216	0	0	0				2027-03-27 08:00	2027-04-22 17:00		2027-02-07 08:00	2027-03-15 17:00	2027-02-07 08:00	2027-03-15 17:00	2027-01-21 08:00	2027-02-21 17:00	2027-03-27 08:00	2027-04-22 17:00		PT_Normal									Y					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2059	1	107	1	100	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Complete	M11010	MEP first fix – Ground floor				0	0	0	0	225	0	0	0		2026-10-18 08:00	2026-11-17 17:00	2026-10-18 08:00	2026-11-17 17:00		2026-10-18 08:00	2026-11-17 17:00	2026-10-18 08:00	2026-11-17 17:00	2026-10-04 08:00	2026-11-01 17:00	2026-10-18 08:00	2026-11-17 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2060	1	107	1	20	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Active	M11020	MEP first fix – Level 1		540		216	0	0	0	225	0	0	0		2026-11-17 08:00		2026-11-17 08:00	2027-03-04 17:00		2026-11-17 08:00	2026-12-24 17:00	2026-11-24 08:00	2026-12-24 17:00	2026-11-01 08:00	2026-11-29 17:00	2026-11-17 08:00	2027-03-04 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2061	1	107	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M11030	MEP first fix – Level 2		513		225	0	0	0	225	0	0	0				2027-02-18 08:00	2027-03-25 17:00		2026-12-19 08:00	2027-01-16 17:00	2026-12-19 08:00	2027-01-16 17:00	2026-11-29 08:00	2026-12-30 17:00	2027-02-18 08:00	2027-03-25 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2062	1	107	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M11040	MEP first fix – Level 3		414		225	0	0	0	225	0	0	0				2027-03-15 08:00	2027-04-12 17:00		2027-01-16 08:00	2027-02-15 17:00	2027-01-16 08:00	2027-02-15 17:00	2026-12-30 08:00	2027-01-27 17:00	2027-03-15 08:00	2027-04-12 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2063	1	107	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M11050	MEP first fix – Level 4		306		225	0	0	0	225	0	0	0				2027-04-01 08:00	2027-04-29 17:00		2027-02-13 08:00	2027-03-21 17:00	2027-02-13 08:00	2027-03-21 17:00	2027-01-27 08:00	2027-03-01 17:00	2027-04-01 08:00	2027-04-29 17:00		PT_Normal									Y					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2064	1	108	1	36.9	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_Active	FN1010	Plaster & screed – Ground floor		675		126	0	0	0	171	0	0	0		2026-11-15 08:00		2026-11-15 08:00	2027-03-13 17:00		2026-11-15 08:00	2026-12-13 17:00	2026-11-24 08:00	2026-12-13 17:00	2026-11-02 08:00	2026-11-23 17:00	2026-11-15 08:00	2027-03-13 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2065	1	108	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	FN1020	Plaster & screed – Level 1		549		171	0	0	0	171	0	0	0				2027-03-06 08:00	2027-03-30 17:00		2026-12-26 08:00	2027-01-16 17:00	2026-12-26 08:00	2027-01-16 17:00	2026-11-30 08:00	2026-12-24 17:00	2027-03-06 08:00	2027-03-30 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2066	1	108	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	FN1030	Plaster & screed – Level 2		513		171	0	0	0	171	0	0	0				2027-03-27 08:00	2027-04-17 17:00		2027-01-17 08:00	2027-02-07 17:00	2027-01-17 08:00	2027-02-07 17:00	2026-12-31 08:00	2027-01-21 17:00	2027-03-27 08:00	2027-04-17 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2067	1	108	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	FN1040	Plaster & screed – Level 3		378		171	0	0	0	171	0	0	0				2027-04-13 08:00	2027-05-04 17:00		2027-02-16 08:00	2027-03-16 17:00	2027-02-16 08:00	2027-03-16 17:00	2027-01-28 08:00	2027-02-22 17:00	2027-04-13 08:00	2027-05-04 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2068	1	108	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	FN1050	Plaster & screed – Level 4		306		171	0	0	0	171	0	0	0				2027-05-01 08:00	2027-05-26 17:00		2027-03-22 08:00	2027-04-12 17:00	2027-03-22 08:00	2027-04-12 17:00	2027-03-02 08:00	2027-03-28 17:00	2027-05-01 08:00	2027-05-26 17:00		PT_Normal									Y					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2069	1	108	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	FN1060	Tiling, ceilings, joinery & paint – Ground floor		675		270	0	0	0	270	0	0	0				2027-03-17 08:00	2027-04-20 17:00		2026-12-17 08:00	2027-01-20 17:00	2026-12-17 08:00	2027-01-20 17:00	2026-11-28 08:00	2027-01-04 17:00	2027-03-17 08:00	2027-04-20 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2070	1	108	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	FN1070	Tiling, ceilings, joinery & paint – Level 1		513		270	0	0	0	270	0	0	0				2027-04-04 08:00	2027-05-08 17:00		2027-01-20 08:00	2027-02-28 17:00	2027-01-20 08:00	2027-02-28 17:00	2026-12-29 08:00	2027-02-01 17:00	2027-04-04 08:00	2027-05-08 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2071	1	108	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	FN1080	Tiling, ceilings, joinery & paint – Level 2		468		270	0	0	0	270	0	0	0				2027-04-21 08:00	2027-05-30 17:00		2027-02-11 08:00	2027-03-25 17:00	2027-02-11 08:00	2027-03-25 17:00	2027-01-26 08:00	2027-03-07 17:00	2027-04-21 08:00	2027-05-30 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2072	1	108	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	FN1090	Tiling, ceilings, joinery & paint – Level 3		378		270	0	0	0	270	0	0	0				2027-05-09 08:00	2027-06-17 17:00		2027-03-21 08:00	2027-04-24 17:00	2027-03-21 08:00	2027-04-24 17:00	2027-02-27 08:00	2027-04-06 17:00	2027-05-09 08:00	2027-06-17 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2073	1	108	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	FN1100	Tiling, ceilings, joinery & paint – Level 4		306		270	0	0	0	270	0	0	0				2027-05-31 08:00	2027-07-05 17:00		2027-04-17 08:00	2027-05-25 17:00	2027-04-17 08:00	2027-05-25 17:00	2027-04-01 08:00	2027-05-05 17:00	2027-05-31 08:00	2027-07-05 17:00		PT_Normal									Y					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2074	1	110	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M21010	MEP second fix & devices – Ground floor		747		234	0	0	0	234	0	0	0				2027-04-10 08:00	2027-05-09 17:00		2026-12-31 08:00	2027-01-30 17:00	2026-12-31 08:00	2027-01-30 17:00	2026-12-15 08:00	2027-01-13 17:00	2027-04-10 08:00	2027-05-09 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2075	1	110	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M21020	MEP second fix & devices – Level 1		549		234	0	0	0	234	0	0	0				2027-04-25 08:00	2027-05-29 17:00		2027-02-03 08:00	2027-03-14 17:00	2027-02-03 08:00	2027-03-14 17:00	2027-01-12 08:00	2027-02-11 17:00	2027-04-25 08:00	2027-05-29 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2076	1	110	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M21030	MEP second fix & devices – Level 2		522		234	0	0	0	234	0	0	0				2027-05-10 08:00	2027-06-14 17:00		2027-02-25 08:00	2027-04-01 17:00	2027-02-25 08:00	2027-04-01 17:00	2027-02-09 08:00	2027-03-18 17:00	2027-05-10 08:00	2027-06-14 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2077	1	110	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M21040	MEP second fix & devices – Level 3		396		234	0	0	0	234	0	0	0				2027-05-30 08:00	2027-06-29 17:00		2027-04-04 08:00	2027-05-03 17:00	2027-04-04 08:00	2027-05-03 17:00	2027-03-15 08:00	2027-04-13 17:00	2027-05-30 08:00	2027-06-29 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2078	1	110	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M21050	MEP second fix & devices – Level 4		306		234	0	0	0	234	0	0	0				2027-06-15 08:00	2027-07-14 17:00		2027-05-01 08:00	2027-06-03 17:00	2027-05-01 08:00	2027-06-03 17:00	2027-04-15 08:00	2027-05-19 17:00	2027-06-15 08:00	2027-07-14 17:00		PT_Normal									Y					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2079	1	107	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M11060	Builder's work in connection		1566		90	0	0	0	90	0	0	0				2027-10-06 08:00	2027-10-17 17:00		2027-03-07 08:00	2027-03-21 17:00	2027-03-07 08:00	2027-03-21 17:00	2027-02-15 08:00	2027-03-01 17:00	2027-10-06 08:00	2027-10-17 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2080	1	109	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	FC1010	Roof waterproofing & insulation		792		90	0	0	0	90	0	0	0				2027-04-25 08:00	2027-05-05 17:00		2027-01-10 08:00	2027-01-20 17:00	2027-01-10 08:00	2027-01-20 17:00	2026-12-15 08:00	2026-12-26 17:00	2027-04-25 08:00	2027-05-05 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2081	1	109	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	FC1020	Façade & glazing		504		864	0	0	0	864	0	0	0				2027-02-03 08:00	2027-06-09 17:00		2026-11-26 08:00	2027-03-30 17:00	2026-11-26 08:00	2027-03-30 17:00	2026-11-16 08:00	2027-03-20 17:00	2027-02-03 08:00	2027-06-09 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2082	1	110	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M21060	HVAC equipment		351		495	0	0	0	495	0	0	0				2027-05-06 08:00	2027-07-14 17:00		2027-03-22 08:00	2027-05-29 17:00	2027-03-22 08:00	2027-05-29 17:00	2027-03-02 08:00	2027-05-09 17:00	2027-05-06 08:00	2027-07-14 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2083	1	110	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M21070	Passenger lifts		432		720	0	0	0	720	0	0	0				2027-04-07 08:00	2027-07-14 17:00		2027-02-01 08:00	2027-05-13 17:00	2027-02-01 08:00	2027-05-13 17:00	2027-01-20 08:00	2027-05-02 17:00	2027-04-07 08:00	2027-07-14 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2084	1	110	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M21080	Standby generator		711		180	0	0	0	180	0	0	0				2027-06-22 08:00	2027-07-14 17:00		2027-03-16 08:00	2027-04-07 17:00	2027-03-16 08:00	2027-04-07 17:00	2027-02-20 08:00	2027-03-21 17:00	2027-06-22 08:00	2027-07-14 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2085	1	110	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M21090	LV panels & MDBs		873		270	0	0	0	270	0	0	0				2027-06-10 08:00	2027-07-14 17:00		2027-02-02 08:00	2027-03-17 17:00	2027-02-02 08:00	2027-03-17 17:00	2027-01-20 08:00	2027-02-28 17:00	2027-06-10 08:00	2027-07-14 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2086	1	110	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	M21100	Fire pump set		621		225	0	0	0	225	0	0	0				2027-06-16 08:00	2027-07-14 17:00		2027-03-22 08:00	2027-04-19 17:00	2027-03-22 08:00	2027-04-19 17:00	2027-03-02 08:00	2027-04-04 17:00	2027-06-16 08:00	2027-07-14 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2087	1	111	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	EX1010	DEWA substation		486		720	0	0	0	720	0	0	0				2027-04-03 08:00	2027-07-14 17:00		2027-01-25 08:00	2027-05-06 17:00	2027-01-25 08:00	2027-05-06 17:00	2027-01-14 08:00	2027-04-26 17:00	2027-04-03 08:00	2027-07-14 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2088	1	111	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	EX1020	External works		513		855	0	0	0	855	0	0	0				2027-04-03 08:00	2027-08-04 17:00		2027-01-25 08:00	2027-05-29 17:00	2027-01-25 08:00	2027-05-29 17:00	2027-01-14 08:00	2027-05-13 17:00	2027-04-03 08:00	2027-08-04 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2089	1	112	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	TC1010	Testing & commissioning		306		405	0	0	0	405	0	0	0				2027-07-15 08:00	2027-09-06 17:00		2027-06-05 08:00	2027-07-27 17:00	2027-06-05 08:00	2027-07-27 17:00	2027-05-20 08:00	2027-07-12 17:00	2027-07-15 08:00	2027-09-06 17:00		PT_Normal									Y					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2090	1	113	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	SN1010	Snagging & rectification		378		270	0	0	0	270	0	0	0				2027-08-26 08:00	2027-09-29 17:00		2027-07-07 08:00	2027-08-10 17:00	2027-07-07 08:00	2027-08-10 17:00	2027-06-22 08:00	2027-07-26 17:00	2027-08-26 08:00	2027-09-29 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2091	1	114	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	HO1010	Final cleaning		378		135	0	0	0	135	0	0	0				2027-09-30 08:00	2027-10-17 17:00		2027-08-11 08:00	2027-08-29 17:00	2027-08-11 08:00	2027-08-29 17:00	2027-07-27 08:00	2027-08-12 17:00	2027-09-30 08:00	2027-10-17 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2092	1	114	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	HO1020	As-builts, O&M & handover documents		513		270	0	0	0	270	0	0	0				2027-09-13 08:00	2027-10-17 17:00		2027-07-07 08:00	2027-08-10 17:00	2027-07-07 08:00	2027-08-10 17:00	2027-06-22 08:00	2027-07-26 17:00	2027-09-13 08:00	2027-10-17 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2093	1	114	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	HO1030	Demobilisation		306		108	0	0	0	108	0	0	0				2027-10-18 08:00	2027-10-31 17:00		2027-09-08 08:00	2027-09-21 17:00	2027-09-08 08:00	2027-09-21 17:00	2027-08-24 08:00	2027-09-06 17:00	2027-10-18 08:00	2027-10-31 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2094	1	115	1	0	N	1	N	N	CP_Phys	TT_Task	DT_FixedDUR2	TK_NotStart	DL1010	Defects Liability Period (12 months) & maintenance				2790	0	0	0	2790	0	0	0				2027-09-08 08:00	2028-09-21 17:00		2027-09-08 08:00	2028-09-21 17:00	2027-09-08 08:00	2028-09-21 17:00	2027-08-24 08:00	2028-09-06 17:00	2027-09-08 08:00	2028-09-21 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2095	1	114	1	0	N	1	N	N	CP_Phys	TT_FinMile	DT_FixedDUR2	TK_NotStart	HO1040	Practical Completion / Taking-Over Certificate		306		0	0	0	0	0	0	0	0				2027-10-18 08:00	2027-10-18 17:00		2027-09-08 08:00	2027-09-08 17:00	2027-09-08 08:00	2027-09-08 17:00	2027-08-24 08:00	2027-08-24 17:00	2027-10-18 08:00	2027-10-18 17:00		PT_Normal									Y					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2096	1	115	1	0	N	1	N	N	CP_Phys	TT_FinMile	DT_FixedDUR2	TK_NotStart	DL1020	Performance Certificate / final retention release				0	0	0	0	0	0	0	0				2028-09-23 08:00	2028-09-23 17:00		2028-09-23 08:00	2028-09-23 17:00	2028-09-23 08:00	2028-09-23 17:00	2028-09-07 08:00	2028-09-07 17:00	2028-09-23 08:00	2028-09-23 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2097	1	116	1	0	N	1	N	N	CP_Phys	TT_LOE	DT_FixedDUR2	TK_NotStart	PM1010	Site management, supervision & document control (LOE)				0	0	0	0	0	0	0	0				2026-03-01 08:00	2027-09-08 17:00		2026-03-01 08:00	2027-09-08 17:00	2026-03-01 08:00	2027-09-08 17:00	2026-03-01 08:00	2027-08-24 17:00	2026-03-01 08:00	2027-09-08 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2098	1	116	1	0	N	1	N	N	CP_Phys	TT_LOE	DT_FixedDUR2	TK_NotStart	PM1020	Temporary power & water (LOE)				0	0	0	0	0	0	0	0				2026-04-18 08:00	2027-05-29 17:00		2026-04-18 08:00	2027-05-29 17:00	2026-04-18 08:00	2027-05-29 17:00	2026-04-18 08:00	2027-05-13 17:00	2026-04-18 08:00	2027-05-29 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2099	1	116	1	0	N	1	N	N	CP_Phys	TT_LOE	DT_FixedDUR2	TK_NotStart	PM1030	Tower crane & hoisting (LOE)				0	0	0	0	0	0	0	0				2026-07-09 08:00	2026-12-23 17:00		2026-07-09 08:00	2026-12-23 17:00	2026-07-09 08:00	2026-12-23 17:00	2026-07-05 08:00	2026-11-24 17:00	2026-07-09 08:00	2026-12-23 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%R	2100	1	102	1	0	N	1	N	N	CP_Phys	TT_LOE	DT_FixedDUR2	TK_NotStart	AU1200	Authority fees & connection charges (LOE)				0	0	0	0	0	0	0	0				2026-03-01 08:00	2027-09-07 17:00		2026-03-01 08:00	2027-09-07 17:00	2026-03-01 08:00	2027-09-07 17:00	2026-03-01 08:00	2027-08-23 17:00	2026-03-01 08:00	2027-09-07 17:00		PT_Normal									N					2026-11-23 08:00	2026-11-23 08:00	siteledger	siteledger	
+%T	TASKPRED
+%F	task_pred_id	task_id	pred_task_id	proj_id	pred_proj_id	pred_type	lag_hr_cnt	comments	float_path	aref	arls
+%R	5000	2001	2000	1	1	PR_FS	0				
+%R	5001	2002	2000	1	1	PR_FS	0				
+%R	5002	2003	2000	1	1	PR_FS	0				
+%R	5003	2004	2000	1	1	PR_FS	0				
+%R	5004	2005	2004	1	1	PR_FS	0				
+%R	5005	2006	2005	1	1	PR_SS	0				
+%R	5006	2007	2005	1	1	PR_SS	0				
+%R	5007	2008	2005	1	1	PR_SS	45				
+%R	5008	2009	2005	1	1	PR_SS	45				
+%R	5009	2010	2005	1	1	PR_SS	90				
+%R	5010	2011	2005	1	1	PR_SS	90				
+%R	5011	2012	2005	1	1	PR_FS	180				
+%R	5012	2013	2006	1	1	PR_FS	540				
+%R	5013	2014	2005	1	1	PR_FS	1080				
+%R	5014	2015	2005	1	1	PR_FS	1260				
+%R	5015	2016	2088	1	1	PR_FS	0				
+%R	5016	2017	2087	1	1	PR_FS	0				
+%R	5017	2018	2083	1	1	PR_FS	0				
+%R	5018	2019	2089	1	1	PR_FS	0				
+%R	5019	2020	2089	1	1	PR_SS	90				
+%R	5020	2021	2019	1	1	PR_FS	0				
+%R	5021	2021	2017	1	1	PR_FS	0				
+%R	5022	2022	2021	1	1	PR_SS	0				
+%R	5023	2023	2001	1	1	PR_FS	0				
+%R	5024	2023	2046	1	1	PR_SS	0				
+%R	5025	2024	2023	1	1	PR_FS	0				
+%R	5026	2025	2001	1	1	PR_FS	0				
+%R	5027	2025	2050	1	1	PR_SS	0				
+%R	5028	2026	2025	1	1	PR_FS	0				
+%R	5029	2027	2001	1	1	PR_FS	0				
+%R	5030	2027	2049	1	1	PR_SS	0				
+%R	5031	2028	2027	1	1	PR_FS	0				
+%R	5032	2029	2001	1	1	PR_FS	0				
+%R	5033	2029	2050	1	1	PR_SS	0				
+%R	5034	2030	2029	1	1	PR_FS	0				
+%R	5035	2031	2001	1	1	PR_FS	0				
+%R	5036	2031	2048	1	1	PR_SS	0				
+%R	5037	2032	2031	1	1	PR_FS	0				
+%R	5038	2033	2001	1	1	PR_FS	0				
+%R	5039	2033	2050	1	1	PR_SS	0				
+%R	5040	2034	2033	1	1	PR_FS	0				
+%R	5041	2035	2001	1	1	PR_FS	0				
+%R	5042	2035	2046	1	1	PR_SS	90				
+%R	5043	2036	2035	1	1	PR_FS	0				
+%R	5044	2037	2005	1	1	PR_FS	0				
+%R	5045	2037	2000	1	1	PR_SS	0				
+%R	5046	2038	2037	1	1	PR_SS	45				
+%R	5047	2039	2038	1	1	PR_FS	0				
+%R	5048	2039	2010	1	1	PR_FS	0				
+%R	5049	2040	2039	1	1	PR_SS	45				
+%R	5050	2040	2011	1	1	PR_FS	0				
+%R	5051	2041	2038	1	1	PR_FS	0				
+%R	5052	2041	2005	1	1	PR_FS	0				
+%R	5053	2042	2041	1	1	PR_FS	0				
+%R	5054	2042	2039	1	1	PR_FS	0				
+%R	5055	2042	2040	1	1	PR_SS	45				
+%R	5056	2043	2042	1	1	PR_SS	144				
+%R	5057	2044	2043	1	1	PR_FS	0				
+%R	5058	2045	2043	1	1	PR_FS	18				
+%R	5059	2046	2045	1	1	PR_SS	45				
+%R	5060	2046	2043	1	1	PR_FS	0				
+%R	5061	2047	2046	1	1	PR_FS	63				
+%R	5062	2048	2046	1	1	PR_FS	0				
+%R	5063	2049	2048	1	1	PR_FS	0				
+%R	5064	2050	2049	1	1	PR_FS	0				
+%R	5065	2051	2050	1	1	PR_FS	0				
+%R	5066	2052	2051	1	1	PR_FS	0				
+%R	5067	2053	2052	1	1	PR_FS	0				
+%R	5068	2054	2049	1	1	PR_FS	63				
+%R	5069	2055	2050	1	1	PR_FS	63				
+%R	5070	2055	2054	1	1	PR_FS	0				
+%R	5071	2056	2051	1	1	PR_FS	63				
+%R	5072	2056	2055	1	1	PR_FS	0				
+%R	5073	2057	2052	1	1	PR_FS	63				
+%R	5074	2057	2056	1	1	PR_FS	0				
+%R	5075	2058	2053	1	1	PR_FS	63				
+%R	5076	2058	2057	1	1	PR_FS	0				
+%R	5077	2059	2054	1	1	PR_SS	45				
+%R	5078	2059	2012	1	1	PR_FS	0				
+%R	5079	2060	2055	1	1	PR_SS	45				
+%R	5080	2060	2059	1	1	PR_SS	117				
+%R	5081	2061	2056	1	1	PR_SS	45				
+%R	5082	2061	2060	1	1	PR_SS	117				
+%R	5083	2062	2057	1	1	PR_SS	45				
+%R	5084	2062	2061	1	1	PR_SS	117				
+%R	5085	2063	2058	1	1	PR_SS	45				
+%R	5086	2063	2062	1	1	PR_SS	117				
+%R	5087	2079	2059	1	1	PR_SS	0				
+%R	5088	2079	2063	1	1	PR_FF	0				
+%R	5089	2064	2059	1	1	PR_FS	0				
+%R	5090	2065	2060	1	1	PR_FS	0				
+%R	5091	2065	2064	1	1	PR_SS	90				
+%R	5092	2066	2061	1	1	PR_FS	0				
+%R	5093	2066	2065	1	1	PR_SS	90				
+%R	5094	2067	2062	1	1	PR_FS	0				
+%R	5095	2067	2066	1	1	PR_SS	90				
+%R	5096	2068	2063	1	1	PR_FS	0				
+%R	5097	2068	2067	1	1	PR_SS	90				
+%R	5098	2080	2053	1	1	PR_FS	126				
+%R	5099	2081	2055	1	1	PR_SS	90				
+%R	5100	2081	2024	1	1	PR_FS	0				
+%R	5101	2069	2064	1	1	PR_FS	27				
+%R	5102	2070	2065	1	1	PR_FS	27				
+%R	5103	2070	2069	1	1	PR_SS	135				
+%R	5104	2071	2066	1	1	PR_FS	27				
+%R	5105	2071	2070	1	1	PR_SS	135				
+%R	5106	2072	2067	1	1	PR_FS	27				
+%R	5107	2072	2071	1	1	PR_SS	135				
+%R	5108	2073	2068	1	1	PR_FS	27				
+%R	5109	2073	2072	1	1	PR_SS	135				
+%R	5110	2074	2069	1	1	PR_SS	108				
+%R	5111	2074	2069	1	1	PR_FF	45				
+%R	5112	2075	2070	1	1	PR_SS	108				
+%R	5113	2075	2070	1	1	PR_FF	45				
+%R	5114	2075	2074	1	1	PR_SS	117				
+%R	5115	2076	2071	1	1	PR_SS	108				
+%R	5116	2076	2071	1	1	PR_FF	45				
+%R	5117	2076	2075	1	1	PR_SS	117				
+%R	5118	2077	2072	1	1	PR_SS	108				
+%R	5119	2077	2072	1	1	PR_FF	45				
+%R	5120	2077	2076	1	1	PR_SS	117				
+%R	5121	2078	2073	1	1	PR_SS	108				
+%R	5122	2078	2073	1	1	PR_FF	45				
+%R	5123	2078	2077	1	1	PR_SS	117				
+%R	5124	2082	2063	1	1	PR_FS	0				
+%R	5125	2082	2080	1	1	PR_FS	0				
+%R	5126	2082	2028	1	1	PR_FS	0				
+%R	5127	2083	2053	1	1	PR_FS	180				
+%R	5128	2083	2032	1	1	PR_FS	0				
+%R	5129	2085	2074	1	1	PR_SS	0				
+%R	5130	2085	2026	1	1	PR_FS	0				
+%R	5131	2086	2063	1	1	PR_FS	0				
+%R	5132	2086	2030	1	1	PR_FS	0				
+%R	5133	2088	2081	1	1	PR_SS	432				
+%R	5134	2088	2047	1	1	PR_FS	0				
+%R	5135	2088	2014	1	1	PR_FS	0				
+%R	5136	2088	2015	1	1	PR_FS	0				
+%R	5137	2087	2088	1	1	PR_SS	0				
+%R	5138	2087	2013	1	1	PR_FS	0				
+%R	5139	2087	2036	1	1	PR_FS	0				
+%R	5140	2084	2088	1	1	PR_SS	90				
+%R	5141	2084	2034	1	1	PR_FS	0				
+%R	5142	2084	2074	1	1	PR_SS	0				
+%R	5143	2089	2078	1	1	PR_FS	0				
+%R	5144	2089	2082	1	1	PR_FS	0				
+%R	5145	2089	2083	1	1	PR_FS	0				
+%R	5146	2089	2086	1	1	PR_FS	0				
+%R	5147	2089	2085	1	1	PR_FS	0				
+%R	5148	2089	2084	1	1	PR_FS	0				
+%R	5149	2089	2087	1	1	PR_FS	0				
+%R	5150	2089	2017	1	1	PR_FF	90				
+%R	5151	2090	2089	1	1	PR_SS	243				
+%R	5152	2091	2090	1	1	PR_FS	0				
+%R	5153	2092	2090	1	1	PR_SS	0				
+%R	5154	2093	2091	1	1	PR_FS	0				
+%R	5155	2095	2091	1	1	PR_FS	0				
+%R	5156	2095	2092	1	1	PR_FS	0				
+%R	5157	2095	2021	1	1	PR_FS	0				
+%R	5158	2095	2022	1	1	PR_FS	0				
+%R	5159	2095	2018	1	1	PR_FS	0				
+%R	5160	2095	2016	1	1	PR_FS	0				
+%R	5161	2095	2020	1	1	PR_FS	0				
+%R	5162	2095	2009	1	1	PR_FS	0				
+%R	5163	2095	2088	1	1	PR_FS	0				
+%R	5164	2095	2090	1	1	PR_FS	0				
+%R	5165	2093	2095	1	1	PR_SS	0				
+%R	5166	2094	2095	1	1	PR_FS	0				
+%R	5167	2096	2094	1	1	PR_FS	0				
+%R	5168	2095	2002	1	1	PR_FS	0				
+%R	5169	2095	2003	1	1	PR_FS	0				
+%R	5170	2095	2007	1	1	PR_FS	0				
+%R	5171	2095	2008	1	1	PR_FS	0				
+%R	5172	2095	2044	1	1	PR_FS	0				
+%R	5173	2095	2079	1	1	PR_FS	0				
+%R	5174	2097	2000	1	1	PR_SS	0				
+%R	5175	2097	2095	1	1	PR_FF	0				
+%R	5176	2098	2037	1	1	PR_SS	0				
+%R	5177	2098	2017	1	1	PR_FF	0				
+%R	5178	2099	2046	1	1	PR_SS	0				
+%R	5179	2099	2053	1	1	PR_FF	0				
+%R	5180	2100	2000	1	1	PR_SS	0				
+%R	5181	2100	2021	1	1	PR_FF	0				
+%T	UDFTYPE
+%F	udf_type_id	table_name	udf_type_name	udf_type_label	logical_data_type	super_flag	indicator_expression	summary_indicator_expression	export_flag
+%R	900	TASK	user_field_900	BOQ Items	FT_TEXT	N			Y
+%R	901	TASK	user_field_901	Duration basis	FT_TEXT	N			Y
+%T	UDFVALUE
+%F	udf_type_id	fk_id	proj_id	udf_date	udf_number	udf_text	udf_code_id
+%R	900	2001	1			1.03	
+%R	901	2001	1			Fixed 20 d (lump sum)	
+%R	900	2002	1			1.04	
+%R	901	2002	1			Fixed 15 d (lump sum)	
+%R	900	2003	1			1.07	
+%R	901	2003	1			Fixed 10 d (lump sum)	
+%R	901	2004	1			Authority review SLA 5 d	
+%R	901	2005	1			Authority review SLA 30 d	
+%R	901	2006	1			Authority review SLA 15 d	
+%R	901	2007	1			Authority review SLA 10 d	
+%R	901	2008	1			Authority review SLA 12 d	
+%R	901	2009	1			Authority review SLA 10 d	
+%R	901	2010	1			Authority review SLA 12 d	
+%R	901	2011	1			Authority review SLA 15 d	
+%R	901	2012	1			Authority review SLA 25 d	
+%R	901	2013	1			Authority review SLA 30 d	
+%R	901	2014	1			Authority review SLA 20 d	
+%R	901	2015	1			Authority review SLA 15 d	
+%R	901	2016	1			Authority review SLA 15 d	
+%R	901	2017	1			Authority review SLA 15 d	
+%R	901	2018	1			Authority review SLA 10 d	
+%R	901	2019	1			Authority review SLA 15 d	
+%R	901	2020	1			Authority review SLA 10 d	
+%R	901	2021	1			Authority review SLA 20 d	
+%R	901	2022	1			Authority review SLA 5 d	
+%R	901	2023	1			Consultant review cycle 30 d	
+%R	901	2024	1			Supplier lead time 14 weeks	
+%R	901	2025	1			Consultant review cycle 30 d	
+%R	901	2026	1			Supplier lead time 12 weeks	
+%R	901	2027	1			Consultant review cycle 30 d	
+%R	901	2028	1			Supplier lead time 14 weeks	
+%R	901	2029	1			Consultant review cycle 30 d	
+%R	901	2030	1			Supplier lead time 12 weeks	
+%R	901	2031	1			Consultant review cycle 30 d	
+%R	901	2032	1			Supplier lead time 18 weeks	
+%R	901	2033	1			Consultant review cycle 30 d	
+%R	901	2034	1			Supplier lead time 16 weeks	
+%R	901	2035	1			Consultant review cycle 30 d	
+%R	901	2036	1			Supplier lead time 20 weeks	
+%R	900	2037	1			1.01	
+%R	901	2037	1			Fixed 25 d (lump sum)	
+%R	900	2038	1			3.01	
+%R	901	2038	1			2,400 m2 ÷ 400 m2/day	
+%R	900	2039	1			3.02	
+%R	901	2039	1			210 m ÷ 9 m/day	
+%R	900	2040	1			3.03	
+%R	901	2040	1			Fixed 70 d (lump sum)	
+%R	900	2041	1			3.04, 3.05, 3.06	
+%R	901	2041	1			96 nr ÷ 6 nr/day	
+%R	900	2042	1			3.07	
+%R	901	2042	1			9,800 m3 ÷ 380 m3/day	
+%R	900	2043	1			3.08	
+%R	901	2043	1			160 m3 ÷ 40 m3/day	
+%R	900	2044	1			3.09	
+%R	901	2044	1			2,200 m2 ÷ 700 m2/day	
+%R	900	2045	1			3.10	
+%R	901	2045	1			2,900 m2 ÷ 200 m2/day	
+%R	900	2046	1			3.11, 3.12, 3.13	
+%R	901	2046	1			380 m3 ÷ 16 m3/day	
+%R	900	2047	1			3.14	
+%R	901	2047	1			2,600 m3 ÷ 200 m3/day	
+%R	900	2048	1			4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07	
+%R	901	2048	1			Floor cycle 15 d	
+%R	900	2049	1			4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07	
+%R	901	2049	1			Floor cycle 15 d	
+%R	900	2050	1			4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07	
+%R	901	2050	1			Floor cycle 15 d	
+%R	900	2051	1			4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07	
+%R	901	2051	1			Floor cycle 15 d	
+%R	900	2052	1			4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07	
+%R	901	2052	1			Floor cycle 15 d	
+%R	900	2053	1			4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07	
+%R	901	2053	1			Floor cycle 12 d	
+%R	900	2054	1			5.01, 5.02, 5.03	
+%R	901	2054	1			11,200 m2 ÷ 95 m2/day → 5 floors	
+%R	900	2055	1			5.01, 5.02, 5.03	
+%R	901	2055	1			11,200 m2 ÷ 95 m2/day → 5 floors	
+%R	900	2056	1			5.01, 5.02, 5.03	
+%R	901	2056	1			11,200 m2 ÷ 95 m2/day → 5 floors	
+%R	900	2057	1			5.01, 5.02, 5.03	
+%R	901	2057	1			11,200 m2 ÷ 95 m2/day → 5 floors	
+%R	900	2058	1			5.01, 5.02, 5.03	
+%R	901	2058	1			11,200 m2 ÷ 95 m2/day → 5 floors	
+%R	900	2059	1			6.02, 6.03, 6.04, 6.05, 6.06, 6.07	
+%R	901	2059	1			Fixed 125 d (lump sum) → 5 floors	
+%R	900	2060	1			6.02, 6.03, 6.04, 6.05, 6.06, 6.07	
+%R	901	2060	1			Fixed 125 d (lump sum) → 5 floors	
+%R	900	2061	1			6.02, 6.03, 6.04, 6.05, 6.06, 6.07	
+%R	901	2061	1			Fixed 125 d (lump sum) → 5 floors	
+%R	900	2062	1			6.02, 6.03, 6.04, 6.05, 6.06, 6.07	
+%R	901	2062	1			Fixed 125 d (lump sum) → 5 floors	
+%R	900	2063	1			6.02, 6.03, 6.04, 6.05, 6.06, 6.07	
+%R	901	2063	1			Fixed 125 d (lump sum) → 5 floors	
+%R	900	2064	1			7.01, 7.02, 7.03	
+%R	901	2064	1			28,500 m2 ÷ 300 m2/day → 5 floors	
+%R	900	2065	1			7.01, 7.02, 7.03	
+%R	901	2065	1			28,500 m2 ÷ 300 m2/day → 5 floors	
+%R	900	2066	1			7.01, 7.02, 7.03	
+%R	901	2066	1			28,500 m2 ÷ 300 m2/day → 5 floors	
+%R	900	2067	1			7.01, 7.02, 7.03	
+%R	901	2067	1			28,500 m2 ÷ 300 m2/day → 5 floors	
+%R	900	2068	1			7.01, 7.02, 7.03	
+%R	901	2068	1			28,500 m2 ÷ 300 m2/day → 5 floors	
+%R	900	2069	1			7.04, 7.05, 7.06, 7.07, 7.08, 7.09, 7.10	
+%R	901	2069	1			8,100 m2 ÷ 55 m2/day → 5 floors	
+%R	900	2070	1			7.04, 7.05, 7.06, 7.07, 7.08, 7.09, 7.10	
+%R	901	2070	1			8,100 m2 ÷ 55 m2/day → 5 floors	
+%R	900	2071	1			7.04, 7.05, 7.06, 7.07, 7.08, 7.09, 7.10	
+%R	901	2071	1			8,100 m2 ÷ 55 m2/day → 5 floors	
+%R	900	2072	1			7.04, 7.05, 7.06, 7.07, 7.08, 7.09, 7.10	
+%R	901	2072	1			8,100 m2 ÷ 55 m2/day → 5 floors	
+%R	900	2073	1			7.04, 7.05, 7.06, 7.07, 7.08, 7.09, 7.10	
+%R	901	2073	1			8,100 m2 ÷ 55 m2/day → 5 floors	
+%R	900	2074	1			9.01, 9.03, 9.04, 9.06, 9.09	
+%R	901	2074	1			Fixed 130 d (lump sum) → 5 floors	
+%R	900	2075	1			9.01, 9.03, 9.04, 9.06, 9.09	
+%R	901	2075	1			Fixed 130 d (lump sum) → 5 floors	
+%R	900	2076	1			9.01, 9.03, 9.04, 9.06, 9.09	
+%R	901	2076	1			Fixed 130 d (lump sum) → 5 floors	
+%R	900	2077	1			9.01, 9.03, 9.04, 9.06, 9.09	
+%R	901	2077	1			Fixed 130 d (lump sum) → 5 floors	
+%R	900	2078	1			9.01, 9.03, 9.04, 9.06, 9.09	
+%R	901	2078	1			Fixed 130 d (lump sum) → 5 floors	
+%R	900	2079	1			6.01	
+%R	901	2079	1			Fixed 0 d	
+%R	900	2080	1			8.03	
+%R	901	2080	1			1,950 m2 ÷ 200 m2/day	
+%R	900	2081	1			8.01, 8.02, 8.04, 8.05, 8.06	
+%R	901	2081	1			2,100 m2 ÷ 22 m2/day	
+%R	900	2082	1			9.05	
+%R	901	2082	1			Fixed 55 d (lump sum)	
+%R	900	2083	1			9.08	
+%R	901	2083	1			2 nr ÷ 40 days/nr	
+%R	900	2084	1			9.10	
+%R	901	2084	1			1 nr ÷ 20 days/nr	
+%R	900	2085	1			9.02	
+%R	901	2085	1			Fixed 30 d (lump sum)	
+%R	900	2086	1			9.07	
+%R	901	2086	1			Fixed 25 d (lump sum)	
+%R	900	2087	1			10.01	
+%R	901	2087	1			Fixed 80 d (lump sum)	
+%R	900	2088	1			10.02, 10.03, 10.04, 10.05, 10.06, 10.07, 10.08	
+%R	901	2088	1			Fixed 95 d (lump sum)	
+%R	900	2089	1			11.01, 11.02, 11.03, 11.04	
+%R	901	2089	1			Fixed 45 d (lump sum)	
+%R	900	2090	1			1.11	
+%R	901	2090	1			Fixed 30 d (lump sum)	
+%R	900	2091	1			1.09	
+%R	901	2091	1			Fixed 15 d (lump sum)	
+%R	900	2092	1			1.10	
+%R	901	2092	1			Fixed 30 d (lump sum)	
+%R	900	2093	1			1.13	
+%R	901	2093	1			Fixed 12 d (lump sum)	
+%R	900	2094	1			1.12	
+%R	901	2094	1			Fixed 310 d (lump sum)	
+%R	900	2097	1			1.02, 1.08	
+%R	901	2097	1			Level of effort	
+%R	900	2098	1			1.05	
+%R	901	2098	1			Level of effort	
+%R	900	2099	1			1.06	
+%R	901	2099	1			Level of effort	
+%R	900	2100	1			2.01, 2.02, 2.03, 2.04, 2.05	
+%R	901	2100	1			Level of effort	
+%E
