@@ -7,18 +7,22 @@ const E = window.Engine;
 const { AED, shortAED, fmtDate, round, sum, STAGES } = E;
 
 // ───────────────────────── libraries (lazy) & files ─────────────────────────
+// Each library is served beside the page (lib/…); the public CDN is a fallback.
+const CDN = 'https://cdnjs.cloudflare.com/ajax/libs/';
 const LIBS = {
-  xlsx: 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js',
-  jspdf: 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',
-  autotable: 'https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js',
-  pdfjs: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',
-  pdfworker: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js',
-  jszip: 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js',
+  xlsx: ['lib/xlsx.full.min.js', CDN + 'xlsx/0.18.5/xlsx.full.min.js'],
+  jspdf: ['lib/jspdf.umd.min.js', CDN + 'jspdf/2.5.1/jspdf.umd.min.js'],
+  autotable: ['lib/jspdf.plugin.autotable.min.js', CDN + 'jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js'],
+  pdfjs: ['lib/pdf.min.js', CDN + 'pdf.js/3.11.174/pdf.min.js'],
+  jszip: ['lib/jszip.min.js', CDN + 'jszip/3.10.1/jszip.min.js'],
 };
+const PDF_WORKER = ['lib/pdf.worker.min.js', CDN + 'pdf.js/3.11.174/pdf.worker.min.js'];
 const loaded = {};
-function loadScript(src) {
-  if (!loaded[src]) loaded[src] = new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = () => res(); s.onerror = () => { delete loaded[src]; rej(new Error('Could not load a library from ' + new URL(src).host + '. Check your connection and try again.')); }; document.head.appendChild(s); });
-  return loaded[src];
+function loadOne(src) { return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = () => res(src); s.onerror = () => { s.remove(); rej(new Error(src)); }; document.head.appendChild(s); }); }
+function loadScript(srcs) {
+  const list = Array.isArray(srcs) ? srcs : [srcs]; const key = list[0];
+  if (!loaded[key]) loaded[key] = list.reduce((p, src) => p.catch(() => loadOne(src)), Promise.reject(new Error('start'))).catch(() => { delete loaded[key]; throw new Error('A required library could not be loaded. Check your connection and try again.'); });
+  return loaded[key];
 }
 let dlPromise = null;
 function getDownloads() { if (!window.claude || !window.claude.use) return Promise.resolve(undefined); if (!dlPromise) dlPromise = window.claude.use('downloads').catch(() => null); return dlPromise; }
@@ -206,7 +210,7 @@ function BoqView({ state, setState, m, toast }) {
         if (!best || !best.items.length) throw new Error('No priced line items found. The sheet needs Description, Unit, Qty and Rate columns.');
         best.log.unshift(`Workbook "${name}": ${wb.SheetNames.length} sheet(s); used "${best.sheet}".`); apply(best, 'upload');
       } else if (ext === 'pdf') {
-        setBusy('Extracting text from PDF…'); await loadScript(LIBS.pdfjs); window.pdfjsLib.GlobalWorkerOptions.workerSrc = LIBS.pdfworker;
+        setBusy('Extracting text from PDF…'); const used = await loadScript(LIBS.pdfjs); window.pdfjsLib.GlobalWorkerOptions.workerSrc = used && used.startsWith('lib/') ? PDF_WORKER[0] : PDF_WORKER[1];
         const doc = await window.pdfjsLib.getDocument({ data: new Uint8Array(await file.arrayBuffer()) }).promise; const lines = [];
         for (let p = 1; p <= doc.numPages; p++) { const tc = await (await doc.getPage(p)).getTextContent(); const rows = new Map(); tc.items.forEach((it) => { const yk = Math.round(it.transform[5] / 3); if (!rows.has(yk)) rows.set(yk, []); rows.get(yk).push({ x: it.transform[4], s: it.str }); }); [...rows.entries()].sort((a, b) => b[0] - a[0]).forEach(([, arr]) => lines.push(arr.sort((a, b) => a.x - b.x).map((q) => q.s).join(' ').replace(/\s+/g, ' ').trim())); }
         const parsed = E.parseRows(E.parsePdfLines(lines), name); parsed.log.unshift(`PDF "${name}": ${doc.numPages} page(s), ${lines.length} text lines read.`);
@@ -787,5 +791,6 @@ function App() {
     ${msg && html`<div class="toast" role="status">${msg}</div>`}
   </div>`;
 }
+window.__slBooted = true;
 ReactDOM.createRoot(document.getElementById('root')).render(html`<${App} />`);
 })();
